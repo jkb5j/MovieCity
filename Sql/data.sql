@@ -92,3 +92,11 @@ Insert in to followers
 INSERT INTO followers(being_followed,follower)
 	VALUES((SELECT user_id from users where user_id=2),
 			(SELECT user_id from users where user_id=1))
+INSERT INTO friends (my_user, other_user)
+VALUES
+((SELECT user_id FROM users WHERE username = 'nepgear'), 
+(SELECT user_id FROM users WHERE username = 'bd1')),
+((SELECT user_id FROM users WHERE username = 'bd1'), 
+(SELECT user_id FROM users WHERE username = 'jkb5j')),
+((SELECT user_id FROM users WHERE username = 'jkb5j'), 
+(SELECT user_id FROM users WHERE username = 'bd1'));
