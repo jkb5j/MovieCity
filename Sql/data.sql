@@ -64,3 +64,31 @@ VALUES ((1973), ('Shaft in Africa'), ('American'), ('John Guillermin'), (1), ('A
 ((2012), ('Born To Love You'), ('Filipino'), ('Jerome Pabocan'), (13), (E'The film centers around Joey Liwanag (Angeline Quinto), a poor girl who works as a part-time tourist guide for Koreans and likes joining amateur singing contests with her two younger siblings to help her family cope with financial problems. Despite the hardship and low probability, Joey works hard to save up money in order to go to Korea, and meet her real father who has abandoned her when she was very young. Rex Manrique (Coco Martin) is a frustrated, very arrogant and hot-tempered photographer who is out to prove to the world that he can stand on his own feet and succeed in life independently. However, the ladder of success seems to be impossible for him as he faces different complications and rejections in life, as well as his career. The moment Rex and Joey encountered each other in a Korean wedding, these two grew a big misunderstanding and hatred towards each other, making it hard for the two of them to get along in the first place. Things get more out of hand when Rex was hired in an advertising company where Joey was also working forâ€”this time, as a translator. As they got to know each other, they found solace and comfort in each other\'s company. But the security that they found in each other soon starts to shake when life takes another course and drives them into a complicated situation. Joey finally meets her biological father, while Rex struggles finding acceptance and forgiveness for her Mother who abandoned her for another man when he was still a young boy. Although Rex cuts off their relationship, Joey tries everything that she could to help him go through his own challenges and promises Rex that she will never leave him. But when Rex finally figures out the answers to his questions and his purpose in life, he and Joey get into a car accident making Rex decide to leave Joey and his family behind and start a new life. After a couple of years of investigation, Joey finally finds Rex in an island in Batangas and confronts him about their relationship which they broke off unofficially. At the same time, Joey finds out that Rex turned blind after saving her life in the accident and Rex himself found forgiveness in his heart. The movie ends during Rex and Joey\'s wedding celebration.')),
 ((2014), ('Once a Princess'), ('Filipino'), ('Laurice Guillen'), (13), (E'Erin Almeda came from a rich family and was always known by her nickname "Princess". She ends up breaking up with her geeky classmate Leonard Jamieson by pretending that she was only using him. She is then faced with many difficult trials after her family went bankrupt. 7 years later, Leonard is unexpectedly reunited with Erin who is married to his high school rival Damian.')),
 ((2010), ('Pimp'), ('British'), ('Robert Cavanah'), (8), (E'A week in the life of a Soho pimp - Woody - (Robert Cavanah) as seen through the lens of a documentary camera team: A week which spirals brutally out of control when the Chinese up their muscle [clarification needed] on Woody\'s boss\'s (Danny Dyer) territory, a girl goes missing, and a snuff webcast appears, showing a former employee being murdered, with another potential webcast seemingly impending.'));
+
+
+
+/**
+Insert in to followers
+**/
+
+INSERT INTO followers(being_followed,follower)
+	VALUES((SELECT user_id from users where user_id=3),
+			(SELECT user_id from users where user_id=1))
+
+
+/**
+Insert in to followers
+**/
+
+INSERT INTO followers(being_followed,follower)
+	VALUES((SELECT user_id from users where user_id=1),
+			(SELECT user_id from users where user_id=2))
+
+
+/**
+Insert in to followers
+**/
+
+INSERT INTO followers(being_followed,follower)
+	VALUES((SELECT user_id from users where user_id=2),
+			(SELECT user_id from users where user_id=1))
