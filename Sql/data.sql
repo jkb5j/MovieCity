@@ -65,6 +65,15 @@ VALUES ((1973), ('Shaft in Africa'), ('American'), ('John Guillermin'), (1), ('A
 ((2014), ('Once a Princess'), ('Filipino'), ('Laurice Guillen'), (13), (E'Erin Almeda came from a rich family and was always known by her nickname "Princess". She ends up breaking up with her geeky classmate Leonard Jamieson by pretending that she was only using him. She is then faced with many difficult trials after her family went bankrupt. 7 years later, Leonard is unexpectedly reunited with Erin who is married to his high school rival Damian.')),
 ((2010), ('Pimp'), ('British'), ('Robert Cavanah'), (8), (E'A week in the life of a Soho pimp - Woody - (Robert Cavanah) as seen through the lens of a documentary camera team: A week which spirals brutally out of control when the Chinese up their muscle [clarification needed] on Woody\'s boss\'s (Danny Dyer) territory, a girl goes missing, and a snuff webcast appears, showing a former employee being murdered, with another potential webcast seemingly impending.'));
 
+/**
+*	inserting the followers
+**/
+INSERT INTO followers(being_followed,follower)
+VALUES((SELECT user_id from users where user_id=3), (SELECT user_id from users where user_id=1)),
+((SELECT user_id from users where user_id=1), (SELECT user_id from users where user_id=2)),
+((SELECT user_id from users where user_id=2), (SELECT user_id from users where user_id=1));
+
+
 INSERT INTO friends (my_user, other_user)
 VALUES
 ((SELECT user_id FROM users WHERE username = 'nepgear'), 
