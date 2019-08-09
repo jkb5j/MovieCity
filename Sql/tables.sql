@@ -16,7 +16,7 @@ CREATE TABLE users
  email TEXT NOT NULL,
  first_name TEXT NOT NULL,
  last_name TEXT NOT NULL,
- rold_id INTEGER REFERENCES roles(role_id)
+ role_id INTEGER REFERENCES roles(role_id)
 );
 
 CREATE TABLE movies
@@ -32,7 +32,6 @@ CREATE TABLE movies
 
 CREATE TABLE friends
 (
- freinds_id SERIAL PRIMARY KEY,
  my_user INTEGER NOT NULL REFERENCES users(user_id),
  other_user INTEGER NOT NULL REFERENCES users(user_id),
  CONSTRAINT pk_friends PRIMARY KEY (my_user, other_user)
@@ -40,7 +39,6 @@ CREATE TABLE friends
 
 CREATE TABLE favorites
 (
- favorite_id SERIAL PRIMARY KEY,
  movie_id INTEGER NOT NULL REFERENCES movies(movie_id),
  user_id INTEGER NOT NULL REFERENCES users(user_id),
  CONSTRAINT pk_favorites PRIMARY KEY (movie_id, user_id)
@@ -48,7 +46,6 @@ CREATE TABLE favorites
 
 CREATE TABLE followers
 (
- followers_id SERIAL PRIMARY KEY,
  being_followed INTEGER NOT NULL REFERENCES users(user_id),
  follower INTEGER NOT NULL REFERENCES users(user_id),
  CONSTRAINT pk_followers PRIMARY KEY (being_followed, follower)
