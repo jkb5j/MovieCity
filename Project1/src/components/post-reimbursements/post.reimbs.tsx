@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { environment } from '../../../environment';
+import { environment } from '../../environment';
 
 
 interface IState {

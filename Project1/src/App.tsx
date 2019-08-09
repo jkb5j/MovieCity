@@ -14,12 +14,12 @@ import { Pokemon } from './components/pokemon/pokemon.component';
 import { Nested } from './components/nested/nested.component';
 import { SignIn } from './components/sign-in/sign-in.component';
 import Cards from './components/cards/cards.component';
-import Reimbursements from './project-1/components/reimbursements/reimbursements.components';
-import { PostReimbs } from './project-1/components/post-reimbursements/post.reimbs';
-import { PatchReimbs } from './project-1/components/update-reimbs/update.reimbursement';
-import { PatchUser } from './project-1/components/update-user/update-user.component';
-import Users from './project-1/components/users/users.component';
-import MyUser from './project-1/components/users/my.users.component';
+import Reimbursements from './components/reimbursements/reimbursements.components';
+import { PostReimbs } from './components/post-reimbursements/post.reimbs';
+import { PatchReimbs } from './components/update-reimbs/update.reimbursement';
+import { PatchUser } from './components/update-user/update-user.component';
+import Users from './components/users/users.component';
+import MyUser from './components/users/my.users.component';
 
 const App: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Reimbursement from '../../models/reimbursement';
-import { environment } from '../../../environment';
+import { environment } from '../../environment';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { ReimbursementStatus } from '../../models/reimb.status';
 

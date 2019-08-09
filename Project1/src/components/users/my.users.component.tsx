@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { environment } from "../../../environment";
+import { environment } from "../../environment";
 import UserReimb from "../../models/user.reimb";
 
 

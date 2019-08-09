@@ -1,7 +1,7 @@
 import React from 'react';
 import Reimbursement from '../../models/reimbursement';
 import { RouteComponentProps } from 'react-router';
-import { environment } from '../../../environment';
+import { environment } from '../../environment';
 
 interface IState {
     reimbs: Reimbursement[],
