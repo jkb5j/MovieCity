@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { environment } from "../../environment";
-import UserReimb from "../../models/user.reimb";
+import UserReimb from "../../modelsproject1/user.reimb";
 
 
 interface IState {
-    users: UserReimb[]
+    user: any
 }
 
-export default class Users extends Component<{}, IState> {
+export default class MyUser extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            users: []
-        };
+        this.state ={
+            user: {}
+        }
     }
 
     async componentDidMount() {
@@ -20,18 +20,22 @@ export default class Users extends Component<{}, IState> {
     }
 
     getUsers = async () => {
-        const resp = await fetch(environment.context + '/users', {
+        const resp = await fetch(environment.context + '/users/0', {
             credentials: 'include'
         });
         const allUsersFromServer = await resp.json();
+
         this.setState({
-            users: allUsersFromServer
+            ...this.state,
+            user: allUsersFromServer
         });
+
+
     }
 
     render() {
-        const users = this.state.users;
-        return(
+        const user = this.state.user;
+        return (
             <div id="users-table-container">
                 <table className="table table-striped table-dark">
                     <thead>
@@ -46,16 +50,16 @@ export default class Users extends Component<{}, IState> {
                     </thead>
                     <tbody>
                         {
-                            users.map(users =>
-                                <tr key={'userId-'+users.userId}>
-                                    <td>{users.userId}</td>
-                                    <td>{users.username}</td>
-                                    <td>{users.firstName}</td>
-                                    <td>{users.lastName}</td>
-                                    <td>{users.email}</td>
-                                    <td>{users.role.role}</td>
-                                </tr>
-                                )
+                            user&& (
+                            <tr key={'userId-' + user.userId}>
+                                    <td>{user.userId}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.firstName}</td>
+                                    <td>{user.lastName}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.role&&user.role.role}</td>
+                            </tr>)
+                            
                         }
                     </tbody>
                 </table>

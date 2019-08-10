@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Reimbursement from '../../models/reimbursement';
+import Reimbursement from '../../modelsproject1/reimbursement';
 import { environment } from '../../environment';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { ReimbursementStatus } from '../../models/reimb.status';
+import { ReimbursementStatus } from '../../modelsproject1/reimb.status';
 
 interface IState {
     reimbs: Reimbursement[],
