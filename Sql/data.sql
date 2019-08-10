@@ -91,7 +91,7 @@ favorites
 INSERT INTO favorites(movie_id,user_id)
 	VALUES((SELECT movie_id from movies where movie_id=11),
 		   (SELECT user_id from users where user_id=1)),
-		   ((SELECT movie_id from movies where movie_id=11)
+		   ((SELECT movie_id from movies where movie_id=11),
 		   (SELECT user_id from users where user_id=2)),
 		  	((SELECT movie_id from movies where movie_id=14),
 		   (SELECT user_id from users where user_id=1)),
@@ -106,4 +106,4 @@ INSERT INTO favorites(movie_id,user_id)
 		   ((SELECT movie_id from movies where movie_id=16),
 		   (SELECT user_id from users where user_id=3)),
 		   ((SELECT movie_id from movies where movie_id=27),
-		   (SELECT user_id from users where user_id=3))
+		   (SELECT user_id from users where user_id=3));
