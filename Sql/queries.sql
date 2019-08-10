@@ -4,12 +4,14 @@
 */
 SELECT * FROM favorites
 LEFT JOIN users USING (user_id)
-LEFT JOIN movies USING (movie_id);
+LEFT JOIN movies USING (movie_id)
+LEFT JOIN genres ON (movies.genre_id = genres.genre_id);
 
 SELECT * FROM favorites
 LEFT JOIN users USING (user_id)
 LEFT JOIN movies USING (movie_id)
-WHERE user_id = 2
+LEFT JOIN genres ON (movies.genre_id = genres.genre_id)
+WHERE genre_type = 'comedy' AND user_id = 1
 ORDER BY movie_id;
 
 /*
@@ -39,12 +41,15 @@ LEFT JOIN users ou ON (friends.other_user = ou.user_id);
 /*
 *   Showing the genres table
 */
-SELECT * FROM genres;
+SELECT * FROM genres
+ORDER BY genre_type;
 
 /*
 *   Showing the movies table
 */
-SELECT * FROM movies;
+SELECT * FROM movies
+LEFT JOIN genres USING (genre_id)
+ORDER BY genre_type;
 
 /*
 *   Showing the roles table
@@ -54,4 +59,5 @@ SELECT * FROM roles;
 /*
 *   Showing the users table
 */
-SELECT * FROM users;
+SELECT * FROM users
+WHERE role_id = 2;
