@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.scss';
-import { FirstComponent } from './components/first/first.component';
-import Second from './components/second/second.component';
-import Third from './components/third/third.component';
+import { FirstComponent } from './componentsproject1/first/first.component';
+import Second from './componentsproject1/second/second.component';
+import Third from './componentsproject1/third/third.component';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NotFound from './components/not-found/not-found.component';
-import { NavComponent } from './components/app-nav/app-nav.component';
-import { Home } from './components/home/home.component';
-import { Clicker } from './components/clicker/clicker.component';
-import { TicTacToe } from './components/tic-tac/tic-tac.component';
-import { Norris } from './components/norris/norris.component';
-import { Pokemon } from './components/pokemon/pokemon.component';
-import { Nested } from './components/nested/nested.component';
-import { SignIn } from './components/sign-in/sign-in.component';
-import Cards from './components/cards/cards.component';
-import Reimbursements from './components/reimbursements/reimbursements.components';
-import { PostReimbs } from './components/post-reimbursements/post.reimbs';
-import { PatchReimbs } from './components/update-reimbs/update.reimbursement';
-import { PatchUser } from './components/update-user/update-user.component';
-import Users from './components/users/users.component';
-import MyUser from './components/users/my.users.component';
+import NotFound from './componentsproject1/not-found/not-found.component';
+import { NavComponent } from './componentsproject1/app-nav/app-nav.component';
+import { Home } from './componentsproject1/home/home.component';
+import { Clicker } from './componentsproject1/clicker/clicker.component';
+import { TicTacToe } from './componentsproject1/tic-tac/tic-tac.component';
+import { Norris } from './componentsproject1/norris/norris.component';
+import { Pokemon } from './componentsproject1/pokemon/pokemon.component';
+import { Nested } from './componentsproject1/nested/nested.component';
+import { SignIn } from './componentsproject1/sign-in/sign-in.component';
+import Cards from './componentsproject1/cards/cards.component';
+import Reimbursements from './componentsproject1/reimbursements/reimbursements.components';
+import { PostReimbs } from './componentsproject1/post-reimbursements/post.reimbs';
+import { PatchReimbs } from './componentsproject1/update-reimbs/update.reimbursement';
+import { PatchUser } from './componentsproject1/update-user/update-user.component';
+import Users from './componentsproject1/users/users.component';
+import MyUser from './componentsproject1/users/my.users.component';
 
 const App: React.FC = () => {
   return (

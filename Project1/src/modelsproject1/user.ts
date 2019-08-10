@@ -1,13 +1,12 @@
-import { Role } from "../modelsproject1/role";
-
-export class User {
+export default class User {
     constructor(
-        public userId = 0,
+        public id = 0,
         public username = '',
         public password = '',
         public email = '',
         public firstName = '',
         public lastName = '',
-        public roleId: Role
+        public phone = '',
+        public role = ''
     ) {}
 }

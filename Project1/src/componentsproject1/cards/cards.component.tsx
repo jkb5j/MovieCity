@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card from '../../models/card';
-import { Game } from '../../models/game';
+import Card from '../../modelsproject1/card';
+import { Game } from '../../modelsproject1/game';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { environment } from '../../environment';
 

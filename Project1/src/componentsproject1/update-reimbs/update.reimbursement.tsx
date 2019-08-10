@@ -1,5 +1,5 @@
 import React from 'react';
-import Reimbursement from '../../models/reimbursement';
+import Reimbursement from '../../modelsproject1/reimbursement';
 import { RouteComponentProps } from 'react-router';
 import { environment } from '../../environment';
 
