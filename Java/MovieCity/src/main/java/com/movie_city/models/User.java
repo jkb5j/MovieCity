@@ -44,20 +44,27 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(
-			name = "favorites",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "user_id")
+			name = "followers",
+			joinColumns = @JoinColumn(name = "being_followed"),
+			inverseJoinColumns = @JoinColumn(name = "follower")
 	)
 	private List<User> followers;
 	
 	@ManyToMany
 	@JoinTable(
-			name = "favorites",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "user_id")
+			name = "friends",
+			joinColumns = @JoinColumn(name = "my_user"),
+			inverseJoinColumns = @JoinColumn(name = "other_user")
 	)
 	private List<User> friends;
-
+	@ManyToMany
+	@JoinTable(
+			name = "recommended_movies",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "movie_id")
+	)
+	private List<Movie> recommendedMovies;
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub

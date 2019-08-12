@@ -12,7 +12,7 @@ import { TicTacToe } from './componentsproject1/tic-tac/tic-tac.component';
 import { Norris } from './componentsproject1/norris/norris.component';
 import { Pokemon } from './componentsproject1/pokemon/pokemon.component';
 import { Nested } from './componentsproject1/nested/nested.component';
-import { SignIn } from './componentsproject1/sign-in/sign-in.component';
+import { SignIn } from './components/sign-in/sign-in.component';
 import Cards from './componentsproject1/cards/cards.component';
 import Reimbursements from './componentsproject1/reimbursements/reimbursements.components';
 import { PostReimbs } from './componentsproject1/post-reimbursements/post.reimbs';
