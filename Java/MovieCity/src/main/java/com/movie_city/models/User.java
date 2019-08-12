@@ -57,13 +57,6 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name = "other_user")
 	)
 	private List<User> friends;
-	@ManyToMany
-	@JoinTable(
-			name = "recommended_movies",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "movie_id")
-	)
-	private List<Movie> recommendedMovies;
 	
 	public User() {
 		super();

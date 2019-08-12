@@ -92,6 +92,6 @@ public class MovieDao {
 		List<Movie> movie = movieArr.stream().map(ele -> (Movie) ele[0]).collect(Collectors.toList());
 		t.commit();
 		s.close();
-		return null;
+		return movie;
 	}
 }
