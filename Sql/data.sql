@@ -74,14 +74,14 @@ VALUES((SELECT user_id from users where user_id=3), (SELECT user_id from users w
 ((SELECT user_id from users where user_id=2), (SELECT user_id from users where user_id=1));
 
 
-INSERT INTO friends (my_user, other_user)
+INSERT INTO friends (my_user, other_user, pending)
 VALUES
 ((SELECT user_id FROM users WHERE username = 'nepgear'), 
-(SELECT user_id FROM users WHERE username = 'bd1')),
+(SELECT user_id FROM users WHERE username = 'bd1'), 1),
 ((SELECT user_id FROM users WHERE username = 'bd1'), 
-(SELECT user_id FROM users WHERE username = 'jkb5j')),
+(SELECT user_id FROM users WHERE username = 'jkb5j'), 1),
 ((SELECT user_id FROM users WHERE username = 'jkb5j'), 
-(SELECT user_id FROM users WHERE username = 'bd1'));
+(SELECT user_id FROM users WHERE username = 'bd1'), 1);
 
 
 /**
