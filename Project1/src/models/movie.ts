@@ -4,7 +4,7 @@ export class Movie {
     constructor(
         public movieId = 0,
         public title = '',
-        public genreId: Genre,
+        public genre: Genre,
         public releaseYear = 0,
         public origin = '',
         public director = '',

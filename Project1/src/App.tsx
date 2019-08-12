@@ -20,6 +20,7 @@ import { PatchReimbs } from './componentsproject1/update-reimbs/update.reimburse
 import { PatchUser } from './componentsproject1/update-user/update-user.component';
 import Users from './componentsproject1/users/users.component';
 import MyUser from './componentsproject1/users/my.users.component';
+import GetMovies from './components/movies/get-movies/get-movies.component'
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         <NavComponent />
         {/* The switch will only render the first route to match */}
         <Switch>
+          <Route path="/movies" component={GetMovies} />
           <Route path="/reimbursements" component={Reimbursements} />
           <Route path="/post-reimbs" component={PostReimbs} />
           <Route path="/update-reimbs" component={PatchReimbs} />
