@@ -34,7 +34,6 @@ CREATE TABLE friends
 (
  my_user INTEGER NOT NULL REFERENCES users(user_id),
  other_user INTEGER NOT NULL REFERENCES users(user_id),
- pending INTEGER NOT NULL,
  CONSTRAINT pk_friends PRIMARY KEY (my_user, other_user)
  );
 
@@ -49,5 +48,6 @@ CREATE TABLE followers
 (
  being_followed INTEGER NOT NULL REFERENCES users(user_id),
  follower INTEGER NOT NULL REFERENCES users(user_id),
+ pending INTEGER NOT NULL,
  CONSTRAINT pk_followers PRIMARY KEY (being_followed, follower)
  );
