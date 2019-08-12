@@ -48,6 +48,5 @@ CREATE TABLE followers
 (
  being_followed INTEGER NOT NULL REFERENCES users(user_id),
  follower INTEGER NOT NULL REFERENCES users(user_id),
- pending INTEGER NOT NULL,
  CONSTRAINT pk_followers PRIMARY KEY (being_followed, follower)
  );

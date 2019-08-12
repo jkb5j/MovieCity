@@ -68,10 +68,10 @@ VALUES ((1973), ('Shaft in Africa'), ('American'), ('John Guillermin'), (1), ('A
 /**
 *	inserting the followers
 **/
-INSERT INTO followers(being_followed,follower, pending)
-VALUES((SELECT user_id from users where user_id=3), (SELECT user_id from users where user_id=1), 1),
-((SELECT user_id from users where user_id=1), (SELECT user_id from users where user_id=2), 2),
-((SELECT user_id from users where user_id=2), (SELECT user_id from users where user_id=1), 2);
+INSERT INTO followers(being_followed,follower)
+VALUES((SELECT user_id from users where user_id=3), (SELECT user_id from users where user_id=1)),
+((SELECT user_id from users where user_id=1), (SELECT user_id from users where user_id=2)),
+((SELECT user_id from users where user_id=2), (SELECT user_id from users where user_id=1));
 
 
 INSERT INTO friends (my_user, other_user)
