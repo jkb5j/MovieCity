@@ -11,7 +11,7 @@ public class SessionUtil {
 	static {
 		Configuration configuration = new Configuration().configure();
 		configuration.setProperty("hibernate.connection.url",
-				"jdbc:postgresql://" + System.getenv("MOVIE_CITY_URL") + ":5432/movie_city");
+				"jdbc:postgresql://" + System.getenv("MOVIE_CITY_URL") + "movie_city");
 		configuration.setProperty("hibernate.connection.username", System.getenv("MOVIE_CITY_USERNAME"));
 		configuration.setProperty("hibernate.connection.password", System.getenv("MOVIE_CITY_PASSWORD"));
 //		configuration.setProperty("hibernate.default_schema", System.getenv("ICE_CREAM_SCHEMA"));

@@ -29,6 +29,7 @@ public class MovieDao {
 		s.update(m);
 		t.commit();
 		s.close();
+		System.out.println(m);
 		return m;
 	}
 	// not finished

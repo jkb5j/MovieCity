@@ -1,5 +1,9 @@
 package com.movie_city.dao;
 
-public class UserDao {
+import org.hibernate.SessionFactory;
 
+import com.movie_city.util.SessionUtil;
+
+public class UserDao {
+	private SessionFactory sf = SessionUtil.getSessionFactory();
 }
