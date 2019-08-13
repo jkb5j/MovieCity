@@ -42,7 +42,7 @@ public class MovieDao {
 		s.close();
 		return null;
 	}
-	// needs to be tested
+	
 	public Movie findById(int id) {
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
