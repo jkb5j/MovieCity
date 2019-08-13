@@ -50,3 +50,12 @@ CREATE TABLE followers
  follower INTEGER NOT NULL REFERENCES users(user_id),
  CONSTRAINT pk_followers PRIMARY KEY (being_followed, follower)
  );
+
+ CREATE TABLE recommendation
+(
+ recommendation_id  serial  NOT NULL,
+ sender INTEGER NOT NULL REFERENCES users(user_id),
+ receiver INTEGER NOT NULL REFERENCES users(user_id),
+ movie INTEGER NOT NULL REFERENCES movies(movie_id),
+ CONSTRAINT pk_recommendation_id  PRIMARY KEY (recommendation_id)
+);
