@@ -5,7 +5,7 @@ import Second from './componentsproject1/second/second.component';
 import Third from './componentsproject1/third/third.component';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './componentsproject1/not-found/not-found.component';
-import { NavComponent } from './componentsproject1/app-nav/app-nav.component';
+import { NavComponent } from './components/app-nav/app-nav.component';
 import { Home } from './componentsproject1/home/home.component';
 import { Clicker } from './componentsproject1/clicker/clicker.component';
 import { TicTacToe } from './componentsproject1/tic-tac/tic-tac.component';
