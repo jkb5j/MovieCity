@@ -3,6 +3,7 @@ package com.movie_city.dao;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -44,9 +45,15 @@ public class MovieDao {
 	// needs to be tested
 	public Movie findById(int id) {
 		Session s = sf.openSession();
-		Movie m = (Movie) s.load(Movie.class, id);
+		Transaction t = s.beginTransaction();
+		
+		Query q = s.createQuery("FROM Movie m WHERE m.movieId = :movieid");
+		q.setInteger("movieid", id);
+		List<Movie> mv = (List<Movie>) q.list();
+		System.out.println(mv.get(0));
+		t.commit();
 		s.close();
-		return m;
+		return mv.get(0);
 	}
 	// needs to be tested
 	public Movie findByTitle(String title) {
