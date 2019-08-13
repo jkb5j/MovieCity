@@ -107,3 +107,13 @@ INSERT INTO favorites(movie_id,user_id)
 		   (SELECT user_id from users where user_id=3)),
 		   ((SELECT movie_id from movies where movie_id=27),
 		   (SELECT user_id from users where user_id=3));
+
+
+/**
+recommendation
+**/
+INSERT INTO recommendation(sender,receiver,movie)
+	VALUES((SELECT user_id from users where user_id=1),(SELECT user_id from users where user_id=2),(SELECT movie_id from movies where movie_id=40)),
+		  	((SELECT user_id from users where user_id=3),(SELECT user_id from users where user_id=1),(SELECT movie_id from movies where movie_id=25)),
+		  ((SELECT user_id from users where user_id=2),(SELECT user_id from users where user_id=1),(SELECT movie_id from movies where movie_id=30))
+	

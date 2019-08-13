@@ -5,7 +5,7 @@ import Second from './componentsproject1/second/second.component';
 import Third from './componentsproject1/third/third.component';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './componentsproject1/not-found/not-found.component';
-import { NavComponent } from './componentsproject1/app-nav/app-nav.component';
+import { NavComponent } from './components/app-nav/app-nav.component';
 import { Home } from './componentsproject1/home/home.component';
 import { Clicker } from './componentsproject1/clicker/clicker.component';
 import { TicTacToe } from './componentsproject1/tic-tac/tic-tac.component';
@@ -20,6 +20,7 @@ import { PatchReimbs } from './componentsproject1/update-reimbs/update.reimburse
 import { PatchUser } from './componentsproject1/update-user/update-user.component';
 import Users from './componentsproject1/users/users.component';
 import MyUser from './componentsproject1/users/my.users.component';
+import GetMovies from './components/movies/get-movies/get-movies.component'
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         <NavComponent />
         {/* The switch will only render the first route to match */}
         <Switch>
+          <Route path="/movies" component={GetMovies} />
           <Route path="/reimbursements" component={Reimbursements} />
           <Route path="/post-reimbs" component={PostReimbs} />
           <Route path="/update-reimbs" component={PatchReimbs} />
