@@ -7,7 +7,8 @@ public class MCHibernateDriver {
 
 	private static MovieDao moviedao = new MovieDao();
 	public static void main(String[] args) {
-		Movie mv = moviedao.findById(7);
-//		System.out.println(mv);
+		Movie mv = moviedao.findById(3);
+		
+//		Movie mv = moviedao.findByTitle("When Marnie Was There");
 	}
 }

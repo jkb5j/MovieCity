@@ -59,17 +59,14 @@ public class MovieDao {
 	public Movie findByTitle(String title) {
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
-		String queryString = "SELECT * FROM movies " + 
-				"LEFT JOIN genres USING (genre_id) " + 
-				"WHERE title = title " + 
-				"ORDER BY genre_type;";
-		Query q = s.createQuery(queryString);
+		
+		Query q = s.createQuery("FROM Movie m WHERE m.title = :title");
 		q.setString("title", title);
-		List<Object[]> movieArr = q.list();
-		List<Movie> movie = movieArr.stream().map(ele -> (Movie) ele[0]).collect(Collectors.toList());
+		List<Movie> mv = (List<Movie>) q.list();
+		System.out.println(mv.get(0));
 		t.commit();
 		s.close();
-		return movie.get(0);
+		return mv.get(0);
 	}
 	// needs to be tested
 	public List<Movie> findByGenre(String genre) {
