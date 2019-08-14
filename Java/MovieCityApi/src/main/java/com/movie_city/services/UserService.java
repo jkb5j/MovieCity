@@ -74,5 +74,10 @@ public class UserService {
 		mainUser.getFriends().add(u);
 		return mainUser.getFriends();
 	}
+
+	public List<User> findFollowers(int userId) {
+		User mainUser = userRepo.getOne(userId);
+		return mainUser.getFollowers();
+	}
 	
 }
