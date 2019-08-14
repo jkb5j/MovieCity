@@ -32,8 +32,12 @@ public class UserService {
 		return userRepo.saveAndFlush(user);
 	}
 
-	public User update(User user) {
-		return userRepo.saveAndFlush(user);
+	public User update(int id, User user) {
+		if(id == user.getUserId()) { // add test for authentication
+			return userRepo.saveAndFlush(user);
+		} else {
+			return null;
+		}
 	}
 	@Transactional
 	public User unfavoriteMovie(int userId, Movie m) {
@@ -46,6 +50,16 @@ public class UserService {
 		User u = userRepo.getOne(userId);
 		u.getFavorites().add(m);
 		return u;
+	}
+
+	public List<Movie> findFavorites(int userId) {
+		User u = userRepo.getOne(userId);
+		return u.getFavorites();
+	}
+
+	public List<User> findFriends(int userId) {
+		User u = userRepo.getOne(userId);
+		return u.getFriends();
 	}
 	
 }

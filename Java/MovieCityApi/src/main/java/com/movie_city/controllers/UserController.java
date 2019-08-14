@@ -36,16 +36,24 @@ public class UserController {
 	private User save(@RequestBody User user) {
 		return userService.save(user);
 	}
-	@PutMapping("/user")
-	private User update(@RequestBody User user) {
-		return userService.update(user);
+	@PutMapping("{id}")
+	private User update(@PathVariable int id, @RequestBody User user) {
+		return userService.update(id, user);
 	}
-	@DeleteMapping("/favorites")
-	private User unfavoriteMovie(int userId, Movie m) {
+	@DeleteMapping("/favorites/{userId}")
+	private User unfavoriteMovie(@PathVariable int userId, Movie m) {
 		return userService.unfavoriteMovie(userId, m);
 	}
-	@PutMapping("/favorites")
-	private User favoriteMovie(int userId, Movie m) {
+	@PutMapping("/favorites/{userId}")
+	private User favoriteMovie(@PathVariable int userId, Movie m) {
 		return userService.favoriteMovie(userId, m);
+	}
+	@GetMapping("/favorites/{userId}")
+	private List<Movie> findFavorites(@PathVariable int userId) {
+		return userService.findFavorites(userId);
+	}
+	@GetMapping("/friends/{userId}")
+	private List<User> findFriends(@PathVariable int userId) {
+		return userService.findFriends(userId);
 	}
 }
