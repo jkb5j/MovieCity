@@ -68,6 +68,7 @@ public class UserService {
 	@Transactional
 	public List<User> unfriend(int userId, User u) {
 		User mainUser = userRepo.getOne(userId);
+		User oldUser = userRepo.getOne(userId);
 		mainUser.getFriends().removeIf(User -> User.getUserId() == u.getUserId());
 		mainUser.getFollowers().add(oldUser);
 		return mainUser.getFriends();
