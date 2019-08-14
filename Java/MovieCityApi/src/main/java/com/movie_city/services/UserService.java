@@ -53,7 +53,7 @@ public class UserService {
 	@Transactional
 	public User favoriteMovie(int userId, Movie m) {
 		User u = userRepo.getOne(userId);
-		Movie movie = movieRepo.getOne(m.getMovieId())
+		Movie movie = movieRepo.getOne(m.getMovieId());
 		u.getFavorites().add(movie);
 		return u;
 	}
