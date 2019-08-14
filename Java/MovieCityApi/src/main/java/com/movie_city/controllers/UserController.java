@@ -76,5 +76,4 @@ public class UserController {
 	private List<User> follow(@PathVariable int userId, @RequestBody User u) {
 		return userService.follow(userId, u);
 	}
-	@PutMapping
 }
