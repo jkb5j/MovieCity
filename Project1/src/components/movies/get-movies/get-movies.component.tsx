@@ -28,7 +28,7 @@ export default class GetMovies extends Component<{}, IState> {
 
     async componentDidMount() {
         this.getAllMovies();
-        // this.getStatus();
+        this.getGenre();
     };
 
     getAllMovies = async () => {
@@ -38,10 +38,10 @@ export default class GetMovies extends Component<{}, IState> {
         const moviesFromServer = await resp.json();
         this.setState({
             movies: moviesFromServer,
-            // statusDropdown: {
-            //     ...this.state.statusDropdown,
-            //     selection: 'All'
-            // }
+            genreDropdown: {
+                ...this.state.genreDropdown,
+                selection: 'All'
+            }
         });
     }
 
@@ -59,28 +59,28 @@ export default class GetMovies extends Component<{}, IState> {
     //     });
     // }
 
-    // getStatus = async () => {
-    //     const resp = await fetch(environment.context + '/reimb/status');
-    //     const status = await resp.json();
-    //     this.setState({
-    //         status
-    //     });
-    //     console.log(status);
-    // }
+    getGenre = async () => {
+        const resp = await fetch(environment.context + '/genres');
+        const genre = await resp.json();
+        this.setState({
+            genre
+        });
+        console.log(genre);
+    }
 
-    // getReimbursementsByStatus = async (status: ReimbursementStatus) => {
-    //     const resp = await fetch(environment.context + '/reimb/reimb/' + status.statusId, {
-    //         credentials: 'include'
-    //     });
-    //     const reimbsFromServer = await resp.json();
-    //     this.setState({
-    //         reimbs: reimbsFromServer,
-    //         statusDropdown: {
-    //             ...this.state.statusDropdown,
-    //             selection: status.status
-    //         }
-    //     })
-    // }
+    getMoviesByGenre = async (genre: Genre) => {
+        const resp = await fetch(environment.context + '/movies/filter/genre/' + genre.genreId, {
+            credentials: 'include'
+        });
+        const moviesFromServer = await resp.json();
+        this.setState({
+            movies: moviesFromServer,
+            genreDropdown: {
+                ...this.state.genreDropdown,
+                selection: genre.genre
+            }
+        })
+    }
 
     toggleGenreDropdown = () => {
         this.setState({
@@ -106,12 +106,12 @@ export default class GetMovies extends Component<{}, IState> {
                             {this.state.genreDropdown.selection}
                         </DropdownToggle>
                         <DropdownMenu right>
-        <DropdownItem /*onClick={/*this.getMyReimbursements}*/>All Movies</DropdownItem>
+        <DropdownItem onClick={this.getAllMovies}>All Movies</DropdownItem>
                             <DropdownItem divider />
                             {
                                 this.state.genre.map(genre => (
                                     <DropdownItem key={'status-dropdown-' + genre.genreId}
-                                    /*onClick={() => this.getReimbursementsByStatus(status)}*/>
+                                    onClick={() => this.getMoviesByGenre(genre)}>
                                         {genre.genre}
                                     </DropdownItem>
                                 ))
