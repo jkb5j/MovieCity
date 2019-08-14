@@ -40,11 +40,12 @@ public class UserController {
 	private User update(@PathVariable int id, @RequestBody User user) {
 		return userService.update(id, user);
 	}
-	@DeleteMapping("/favorites/{userId}") // Test
+	// internal server error but work
+	@DeleteMapping("/favorites/{userId}")
 	private User unfavoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.unfavoriteMovie(userId, m);
 	}
-	@PutMapping("/favorites/{userId}") // Test
+	@PutMapping("/favorites/{userId}")
 	private User favoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.favoriteMovie(userId, m);
 	}
