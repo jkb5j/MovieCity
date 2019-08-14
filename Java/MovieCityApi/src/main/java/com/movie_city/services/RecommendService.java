@@ -16,4 +16,12 @@ public class RecommendService {
 	public List<Recommendations> findAll() {
 		return recommendRepo.findAll();
 	}
+	
+	public List<Recommendations> findBySender(int userid) {
+		return recommendRepo.findBySender(userid);
+	}
+	
+	public List<Recommendations> findByReceiver(int userid) {
+		return recommendRepo.findByReceiver(userid);
+	}
 }

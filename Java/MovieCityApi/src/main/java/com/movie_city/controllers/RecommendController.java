@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,15 @@ public class RecommendController {
 	@GetMapping
 	public List<Recommendations> findAll() {
 		return recommendService.findAll();
+	}
+	
+	@GetMapping("/sender/{userid}")
+	public List<Recommendations> findBySender(@PathVariable int userid) {
+		return recommendService.findBySender(userid);
+	}
+	
+	@GetMapping("/receiver/{userid}")
+	public List<Recommendations> findByReceiver(@PathVariable int userid) {
+		return recommendService.findByReceiver(userid);
 	}
 }
