@@ -21,5 +21,20 @@ public class MovieController {
 		return movieService.findAll();
 	}
 	
+	@GetMapping("title")
+	public List<Movie> findMovieOrderByTitle() {
+		return movieService.findMovieOrderByTitle();
+	}
+	
+	@GetMapping("genre")
+	public List<Movie> findMovieOrderByGenre() {
+		return movieService.findMovieOrderByGenre();
+	}
+	
+	@GetMapping("year")
+	public List<Movie> findMovieOrderByReleaseYear() {
+		return movieService.findMovieOrderByReleaseYear();
+	}
+	
 	
 }

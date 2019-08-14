@@ -16,5 +16,17 @@ public class MovieService {
 	public List<Movie> findAll() {
 		return movieRepo.findAll();
 	}
+
+	public List<Movie> findMovieOrderByTitle() {
+		return movieRepo.findMovieOrderByTitle();
+	}
+	
+	public List<Movie> findMovieOrderByGenre() {
+		return movieRepo.findMovieOrderByGenre();
+	}
+	
+	public List<Movie> findMovieOrderByReleaseYear() {
+		return movieRepo.findMovieOrderByReleaseYear();
+	}
 	
 }
