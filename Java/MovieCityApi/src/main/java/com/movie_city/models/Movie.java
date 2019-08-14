@@ -9,13 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "movies")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-@JsonFilter("depth_4")
 public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +20,7 @@ public class Movie {
 	private String title;
 	@ManyToOne
 	@JoinColumn(name= "genre_id")
-	private Genre genreId;
+	private Genre genre;
 	@Column(name = "release_year")
 	private int releaseYear;
 	
@@ -40,12 +35,12 @@ public class Movie {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Movie(int movieId, String title, Genre genreId, int releaseYear, String origin, String director,
+	public Movie(int movieId, String title, Genre genre, int releaseYear, String origin, String director,
 			String plot) {
 		super();
 		this.movieId = movieId;
 		this.title = title;
-		this.genreId = genreId;
+		this.genre = genre;
 		this.releaseYear = releaseYear;
 		this.origin = origin;
 		this.director = director;
@@ -68,12 +63,12 @@ public class Movie {
 		this.title = title;
 	}
 
-	public Genre getGenreId() {
-		return genreId;
+	public Genre getgenre() {
+		return genre;
 	}
 
-	public void setGenreId(Genre genreId) {
-		this.genreId = genreId;
+	public void setgenre(Genre genre) {
+		this.genre = genre;
 	}
 
 	public int getReleaseYear() {
@@ -113,7 +108,7 @@ public class Movie {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((director == null) ? 0 : director.hashCode());
-		result = prime * result + ((genreId == null) ? 0 : genreId.hashCode());
+		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
 		result = prime * result + movieId;
 		result = prime * result + ((origin == null) ? 0 : origin.hashCode());
 		result = prime * result + ((plot == null) ? 0 : plot.hashCode());
@@ -136,10 +131,10 @@ public class Movie {
 				return false;
 		} else if (!director.equals(other.director))
 			return false;
-		if (genreId == null) {
-			if (other.genreId != null)
+		if (genre == null) {
+			if (other.genre != null)
 				return false;
-		} else if (!genreId.equals(other.genreId))
+		} else if (!genre.equals(other.genre))
 			return false;
 		if (movieId != other.movieId)
 			return false;
@@ -165,7 +160,7 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie [movieId=" + movieId + ", title=" + title + ", genreId=" + genreId + ", releaseYear="
+		return "Movie [movieId=" + movieId + ", title=" + title + ", genre=" + genre + ", releaseYear="
 				+ releaseYear + ", origin=" + origin + ", director=" + director + ", plot=" + plot + "]";
 	}
 	
