@@ -92,7 +92,7 @@ public class MovieDao {
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
 
-		Query q = s.createQuery("FROM Movie m WHERE m.releaseYear = :year");
+		Query q = s.createQuery("FROM Movie m WHERE m.releaseYear = :year ORDER BY m.genre");
 		q.setInteger("year", year);
 		List<Movie> mv = (List<Movie>) q.list();
 		if (mv.size() > 0) {
