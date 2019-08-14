@@ -36,16 +36,16 @@ public class UserController {
 	private User save(@RequestBody User user) {
 		return userService.save(user);
 	}
-	@PutMapping("{id}")
+	@PutMapping("/{id}")
 	private User update(@PathVariable int id, @RequestBody User user) {
 		return userService.update(id, user);
 	}
-	@DeleteMapping("/favorites/{userId}")
-	private User unfavoriteMovie(@PathVariable int userId, Movie m) {
+	@DeleteMapping("/favorites/{userId}") // Test
+	private User unfavoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.unfavoriteMovie(userId, m);
 	}
-	@PutMapping("/favorites/{userId}")
-	private User favoriteMovie(@PathVariable int userId, Movie m) {
+	@PutMapping("/favorites/{userId}") // Test
+	private User favoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.favoriteMovie(userId, m);
 	}
 	@GetMapping("/favorites/{userId}")
@@ -55,5 +55,25 @@ public class UserController {
 	@GetMapping("/friends/{userId}")
 	private List<User> findFriends(@PathVariable int userId) {
 		return userService.findFriends(userId);
+	}
+	@DeleteMapping("/friends/{userId}") // Test
+	private List<User> unfriend(@PathVariable int userId, @RequestBody User u) {
+		return userService.unfriend(userId, u);
+	}
+	@PutMapping("/friends/{userId}") // Test
+	private List<User> addFriend(@PathVariable int userId, @RequestBody User u) {
+		return userService.addFriend(userId, u);
+	}
+	@GetMapping("/followers/{userId}")
+	private List<User> findFollowers(@PathVariable int userId) {
+		return userService.findFollowers(userId);
+	}
+	@DeleteMapping("/followers/{userId") // Test
+	private List<User> unfollow(@PathVariable int userId, @RequestBody User u) {
+		return userService.unfollow(userId,u);
+	}
+	@PutMapping("/followers/{userId}") // Test
+	private List<User> follow(@PathVariable int userId, @RequestBody User u) {
+		return userService.follow(userId, u);
 	}
 }
