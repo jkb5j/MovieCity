@@ -11,13 +11,13 @@ import com.movie_city.models.Pending;
 import com.movie_city.services.PendingService;
 
 @RestController
-@RequestMapping("Pending")
+@RequestMapping("pending")
 public class PendingController {
-	@Autowired
-	private PendingService ps;
-	
-	@GetMapping
-	private List<Pending> findAll() {
-		return ps.findAll();
-	}
+//	@Autowired
+//	private PendingService ps;
+//	
+//	@GetMapping
+//	private List<Pending> findAll() {
+//		return ps.findAll();
+//	}
 }

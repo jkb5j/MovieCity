@@ -69,7 +69,7 @@ public class UserController {
 	private List<User> findFollowers(@PathVariable int userId) {
 		return userService.findFollowers(userId);
 	}
-	@DeleteMapping("/followers/{userId") // Test
+	@DeleteMapping("/followers/{userId}") // Test
 	private List<User> unfollow(@PathVariable int userId, @RequestBody User u) {
 		return userService.unfollow(userId,u);
 	}

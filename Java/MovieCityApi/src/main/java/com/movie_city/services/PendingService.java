@@ -10,6 +10,7 @@ import com.movie_city.repos.PendingRepo;
 public class PendingService {
 	@Autowired
 	private PendingRepo pr;
+	
 	public List<Pending> findAll() {
 		return pr.findAll();
 	}

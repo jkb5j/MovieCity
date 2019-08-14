@@ -46,8 +46,8 @@ public class UserService {
 	public User unfavoriteMovie(int userId, Movie m) {
 		
 		User u = userRepo.getOne(userId);
-		Movie movie = movieRepo.getOne(m.getMovieId());
-		u.getFavorites().remove(movie);
+		//Movie movie = movieRepo.getOne(m.getMovieId());
+		u.getFavorites().removeIf(Movie -> Movie.getMovieId() == m.getMovieId());
 		return u;
 	}
 	@Transactional
