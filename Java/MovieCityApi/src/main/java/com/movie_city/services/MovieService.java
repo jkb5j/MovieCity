@@ -28,5 +28,25 @@ public class MovieService {
 	public List<Movie> findMovieOrderByReleaseYear() {
 		return movieRepo.findMovieOrderByReleaseYear();
 	}
+
+	public List<Movie> findByReleaseYear(int year) {
+		return movieRepo.findByReleaseYear(year);
+	}
+
+	public List<Movie> findByReleaseYearOrderByGenre(int year) {
+		return movieRepo.findByReleaseYearOrderByGenre(year);
+	}
+	
+	public List<Movie> findByReleaseYearOrderByTitle(int year) {
+		return movieRepo.findByReleaseYearOrderByTitle(year);
+	}
+	
+	public List<Movie> findByGenreGenreId(int genreid) {
+		return movieRepo.findByGenreGenreId(genreid);
+	}
+	
+	public List<Movie> findByTitle(String title) {
+		return movieRepo.findByTitle(title);
+	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +37,29 @@ public class MovieController {
 		return movieService.findMovieOrderByReleaseYear();
 	}
 	
+	@GetMapping("/filter/year/{year}")
+	public List<Movie> findByReleaseYear(@PathVariable int year) {
+		return movieService.findByReleaseYear(year);
+	}
+	
+	@GetMapping("/filter/year/{year}/genre")
+	public List<Movie> findByReleaseYearOrderByGenre(@PathVariable int year) {
+		return movieService.findByReleaseYearOrderByGenre(year);
+	}
+	
+	@GetMapping("/filter/year/{year}/title")
+	public List<Movie> findByReleaseYearOrderByTitle(@PathVariable int year) {
+		return movieService.findByReleaseYearOrderByTitle(year);
+	}
+	
+	@GetMapping("/filter/genre/{genreid}")
+	public List<Movie> findByGenreGenreId(@PathVariable int genreid) {
+		return movieService.findByGenreGenreId(genreid);
+	}
+	
+	@GetMapping("/filter/title/{title}")
+	public List<Movie> findByTitle(@PathVariable String title) {
+		return movieService.findByTitle(title);
+	}
 	
 }
