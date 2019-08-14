@@ -11,6 +11,8 @@ public class MCHibernateDriver {
 		
 //		Movie mv = moviedao.findByTitle("When Marnie Was There");
 		
-		Movie mv = moviedao.findByGenre(2);
+//		Movie mv = moviedao.findByGenre(2);
+		
+		Movie mv = moviedao.findByYear(2012);
 	}
 }
