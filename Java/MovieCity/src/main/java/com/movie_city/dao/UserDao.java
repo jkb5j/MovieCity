@@ -29,11 +29,10 @@ public class UserDao {
 		
 		Criteria c = s.createCriteria(User.class);
 		c.add(
-				Restrictions.and(
-						Restrictions.eq("username", username),
-						Restrictions.eq("password", password)
-						)
-			
+		Restrictions.and(
+		Restrictions.eq("username", username),
+		Restrictions.eq("password", password)
+		)
 		);
 		List<User> users = c.list();
 		users.forEach(ele -> System.out.println(ele));
@@ -43,7 +42,7 @@ public class UserDao {
 	}
 	
 	
-	public void CreatNewUser(String username, String password,String email,String first_name, String last_name){
+	public User CreateNewUser(String username, String password,String email,String first_name, String last_name){
 		
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
@@ -62,6 +61,7 @@ public class UserDao {
 		u.setRole(myRole);
 		t.commit();
 		s.close();
+		return u;
 	}
 	
 	//want to update user account where the userId matches the account 
