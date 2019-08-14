@@ -15,6 +15,7 @@ public class Genre {
 	@Column(name = "genre_id")
 	private int genreId;
 	
+	@Column(name = "genre_type")
 	private String genre;
 	
 	public Genre() {
