@@ -41,7 +41,7 @@ public class UserController {
 		return userService.update(id, user);
 	}
 	// internal server error but work
-	@DeleteMapping("/favorites/{userId}")
+	@DeleteMapping("/favorites/{userId}") // Test
 	private User unfavoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.unfavoriteMovie(userId, m);
 	}
