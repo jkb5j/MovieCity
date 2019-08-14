@@ -61,5 +61,18 @@ public class UserService {
 		User u = userRepo.getOne(userId);
 		return u.getFriends();
 	}
+
+	public List<User> unfriend(int userId, User u) {
+		User mainUser = userRepo.getOne(userId);
+		mainUser.getFriends().remove(u);
+		mainUser.getFollowers().add(u);
+		return mainUser.getFriends();
+	}
+
+	public List<User> addFriend(int userId, User u) {
+		User mainUser = userRepo.getOne(userId);
+		mainUser.getFriends().add(u);
+		return mainUser.getFriends();
+	}
 	
 }
