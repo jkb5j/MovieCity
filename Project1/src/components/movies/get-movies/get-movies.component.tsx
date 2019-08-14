@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Movie } from '../../../models/movie';
 import { Genre } from '../../../models/genre';
+import { environment } from '../../../environment';
 
 interface IState {
     movies: Movie[],
@@ -20,29 +21,29 @@ export default class GetMovies extends Component<{}, IState> {
             genre: [],
             genreDropdown: {
                 isOpen: false,
-                selection: 'Genres'
+                selection: 'All Movies'
             }
         };
     }
 
-    // async componentDidMount() {
-    //     this.getMyReimbursements();
-    //     this.getStatus();
-    // };
+    async componentDidMount() {
+        this.getAllMovies();
+        // this.getStatus();
+    };
 
-    // getReimbursements = async () => {
-    //     const resp = await fetch(environment.context + '/reimb/', {
-    //         credentials: 'include'
-    //     });
-    //     const reimbsFromServer = await resp.json();
-    //     this.setState({
-    //         reimbs: reimbsFromServer,
-    //         statusDropdown: {
-    //             ...this.state.statusDropdown,
-    //             selection: 'All'
-    //         }
-    //     });
-    // }
+    getAllMovies = async () => {
+        const resp = await fetch(environment.context + '/movies/', {
+            credentials: 'include'
+        });
+        const moviesFromServer = await resp.json();
+        this.setState({
+            movies: moviesFromServer,
+            // statusDropdown: {
+            //     ...this.state.statusDropdown,
+            //     selection: 'All'
+            // }
+        });
+    }
 
     // getMyReimbursements = async () => {
     //     const resp = await fetch(environment.context + '/reimb/reimb/author/0', {
@@ -105,14 +106,13 @@ export default class GetMovies extends Component<{}, IState> {
                             {this.state.genreDropdown.selection}
                         </DropdownToggle>
                         <DropdownMenu right>
-        <DropdownItem /*onClick={/*this.getMyReimbursements}*/>Movies</DropdownItem>
+        <DropdownItem /*onClick={/*this.getMyReimbursements}*/>All Movies</DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem /*onClick={this.getReimbursements}*/>All</DropdownItem>
                             {
                                 this.state.genre.map(genre => (
                                     <DropdownItem key={'status-dropdown-' + genre.genreId}
                                     /*onClick={() => this.getReimbursementsByStatus(status)}*/>
-                                        {genre.genreType}
+                                        {genre.genre}
                                     </DropdownItem>
                                 ))
                             }
@@ -128,7 +128,7 @@ export default class GetMovies extends Component<{}, IState> {
                             movies.map(movie =>
                                 <tr key={'movieId-'+movie.movieId}>
                                     <td>{movie.title}</td>
-                                    <td>{movie.genre.genreType}</td>
+                                    <td>{movie.genre.genre}</td>
                                     <td>{movie.releaseYear}</td>
                                     <td>{movie.origin}</td>
                                     <td>{movie.director}</td>

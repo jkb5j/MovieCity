@@ -1,6 +1,6 @@
 export class Genre {
     constructor(
         public genreId = 0,
-        public genreType = ''
+        public genre = ''
     ) {}
 }
