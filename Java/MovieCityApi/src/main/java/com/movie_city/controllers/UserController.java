@@ -41,7 +41,7 @@ public class UserController {
 		return userService.update(id, user);
 	}
 	// internal server error but work
-	@DeleteMapping("/favorites/{userId}") // Test
+	@DeleteMapping("/favorites/{userId}")
 	private User unfavoriteMovie(@PathVariable int userId, @RequestBody Movie m) {
 		return userService.unfavoriteMovie(userId, m);
 	}
@@ -57,11 +57,11 @@ public class UserController {
 	private List<User> findFriends(@PathVariable int userId) {
 		return userService.findFriends(userId);
 	}
-	@DeleteMapping("/friends/{userId}") // Test
+	@DeleteMapping("/friends/{userId}")
 	private List<User> unfriend(@PathVariable int userId, @RequestBody User u) {
 		return userService.unfriend(userId, u);
 	}
-	@PutMapping("/friends/{userId}") // Test
+	@PutMapping("/friends/{userId}")
 	private List<User> addFriend(@PathVariable int userId, @RequestBody User u) {
 		return userService.addFriend(userId, u);
 	}
@@ -69,11 +69,11 @@ public class UserController {
 	private List<User> findFollowers(@PathVariable int userId) {
 		return userService.findFollowers(userId);
 	}
-	@DeleteMapping("/followers/{userId}") // Test
+	@DeleteMapping("/followers/{userId}")
 	private List<User> unfollow(@PathVariable int userId, @RequestBody User u) {
 		return userService.unfollow(userId,u);
 	}
-	@PutMapping("/followers/{userId}") // Test
+	@PutMapping("/followers/{userId}")
 	private List<User> follow(@PathVariable int userId, @RequestBody User u) {
 		return userService.follow(userId, u);
 	}
