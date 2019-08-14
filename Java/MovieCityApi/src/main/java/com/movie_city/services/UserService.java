@@ -44,9 +44,7 @@ public class UserService {
 	}
 	@Transactional
 	public User unfavoriteMovie(int userId, Movie m) {
-		
 		User u = userRepo.getOne(userId);
-		//Movie movie = movieRepo.getOne(m.getMovieId());
 		u.getFavorites().removeIf(Movie -> Movie.getMovieId() == m.getMovieId());
 		return u;
 	}
@@ -67,15 +65,14 @@ public class UserService {
 		User u = userRepo.getOne(userId);
 		return u.getFriends();
 	}
-
+	@Transactional
 	public List<User> unfriend(int userId, User u) {
 		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(u.getUserId());
-		mainUser.getFriends().remove(oldUser);
+		mainUser.getFriends().removeIf(User -> User.getUserId() == u.getUserId());
 		mainUser.getFollowers().add(oldUser);
 		return mainUser.getFriends();
 	}
-
+	@Transactional
 	public List<User> addFriend(int userId, User u) {
 		User mainUser = userRepo.getOne(userId);
 		User oldUser = userRepo.getOne(u.getUserId());
@@ -87,14 +84,13 @@ public class UserService {
 		User mainUser = userRepo.getOne(userId);
 		return mainUser.getFollowers();
 	}
-
+	@Transactional
 	public List<User> unfollow(int userId, User u) {
 		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(u.getUserId());
-		mainUser.getFollowers().remove(oldUser);
+		mainUser.getFollowers().removeIf(User -> User.getUserId() == u.getUserId());
 		return mainUser.getFollowers();
 	}
-
+	@Transactional
 	public List<User> follow(int userId, User u) {
 		User mainUser = userRepo.getOne(userId);
 		User oldUser = userRepo.getOne(u.getUserId());
