@@ -36,7 +36,7 @@ public class UserController {
 	private User save(@RequestBody User user) {
 		return userService.save(user);
 	}
-	@PutMapping("/{id}") // Test
+	@PutMapping("/{id}")
 	private User update(@PathVariable int id, @RequestBody User user) {
 		return userService.update(id, user);
 	}
@@ -68,4 +68,13 @@ public class UserController {
 	private List<User> findFollowers(@PathVariable int userId) {
 		return userService.findFollowers(userId);
 	}
+	@DeleteMapping("/followers/{userId") // Test
+	private List<User> unfollow(@PathVariable int userId, @RequestBody User u) {
+		return userService.unfollow(userId,u);
+	}
+	@PutMapping("/followers/{userId}") // Test
+	private List<User> follow(@PathVariable int userId, @RequestBody User u) {
+		return userService.follow(userId, u);
+	}
+	@PutMapping
 }
