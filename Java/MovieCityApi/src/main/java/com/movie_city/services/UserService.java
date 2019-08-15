@@ -34,6 +34,7 @@ public class UserService {
 
 	public User save(User user) {
 		user.setRole(new Role(2, "user"));
+		user.setUserId(0);
 		return userRepo.saveAndFlush(user);
 	}
 
