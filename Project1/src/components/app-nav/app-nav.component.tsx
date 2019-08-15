@@ -28,8 +28,9 @@ export class NavComponent extends React.Component {
               <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</div>
               <div className="dropdown-menu" aria-labelledby="examples-dropdown">
                 <div className="dropdown-item"><Link to="/my-user" className="unset-anchor nav-link active">My Info</Link></div>
-                <div className="dropdown-item"><Link to="/username/{username}" className="unset-anchor nav-link active">Find User</Link></div>
-                <div className="dropdown-item"><Link to="/requests" className="unset-anchor nav-link active">Requests</Link></div>
+                <div className="dropdown-item"><Link to="/find-users" className="unset-anchor nav-link active">Find Other User</Link></div>
+                <div className="dropdown-item"><Link to="/patch-user" className="unset-anchor nav-link active">Update My User</Link></div>
+                <div className="dropdown-item"><Link to="/post-user" className="unset-anchor nav-link active">Create A User</Link></div>
               </div>
             </li>
             <li className="nav-item active">

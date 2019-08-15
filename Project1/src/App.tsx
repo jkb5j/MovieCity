@@ -23,6 +23,8 @@ import MyUser from './componentsproject1/users/my.users.component';
 import GetMovies from './components/movies/get-movies/get-movies.component'
 import FavMovies from './components/movies/favorite-movies/fav-movies.component';
 import { PostUser } from './components/users/post-user/post-user.component';
+import GetUsers from './components/users/get-users/get-users.component';
+import { UpdateUser } from './components/users/update-user/update-user.component';
 
 const App: React.FC = () => {
   return (
@@ -50,6 +52,8 @@ const App: React.FC = () => {
           <Route path="/my-user-info" component={MyUser} />
           <Route path="/all-users" component={Users} />
           <Route path="/post-user" component={PostUser} />
+          <Route path="/find-users" component={GetUsers} />
+          <Route path="/patch-user" component={UpdateUser} />
           <Route component={NotFound} />
         </Switch>
       </div>

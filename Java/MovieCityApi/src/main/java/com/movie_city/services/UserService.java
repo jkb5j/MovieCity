@@ -116,5 +116,9 @@ public class UserService {
 		}
 		return u;
 	}
+
+	public List<User> findAllBut(int userId) {
+		return userRepo.findAllBut(userId);
+	}
 	
 }

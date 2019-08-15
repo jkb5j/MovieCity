@@ -24,6 +24,12 @@ public class UserController {
 	private List<User> findAll() {
 		return userService.findAll();
 	}
+	
+	@GetMapping("/except/{userId}")
+	private List<User> findAllBut(@PathVariable int userId) {
+		return userService.findAllBut(userId);
+	}
+	
 	@GetMapping("/username/{username}")
 	private User findByUsername(@PathVariable String username) {
 		return userService.findByUsername(username);
