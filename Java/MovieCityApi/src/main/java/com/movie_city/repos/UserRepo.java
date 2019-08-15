@@ -8,5 +8,6 @@ import com.movie_city.models.User;
 public interface UserRepo extends JpaRepository<User, Integer>{
 
 	User findByUsername(String username);
+	User findByUsernameAndPassword(String username, String password);
 
 }

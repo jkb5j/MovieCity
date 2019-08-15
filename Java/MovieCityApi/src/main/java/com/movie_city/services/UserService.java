@@ -2,16 +2,20 @@ package com.movie_city.services;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.movie_city.models.Movie;
 import com.movie_city.models.Role;
 import com.movie_city.models.User;
 import com.movie_city.repos.MovieRepo;
 import com.movie_city.repos.UserRepo;
+import com.movie_city.dtos.Credential;
 
 @Service
 public class UserService {
@@ -99,6 +103,17 @@ public class UserService {
 		User oldUser = userRepo.getOne(u.getUserId());
 		mainUser.getFollowers().add(oldUser);
 		return mainUser.getFollowers();
+	}
+	
+	public User login(Credential cred) {
+		User u = userRepo.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
+
+		if (u != null) {
+			HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+					.getRequest();
+			req.getSession().setAttribute("user", u);
+		}
+		return u;
 	}
 	
 }
