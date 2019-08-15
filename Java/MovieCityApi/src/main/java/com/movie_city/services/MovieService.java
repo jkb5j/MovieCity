@@ -21,10 +21,6 @@ public class MovieService {
 		return movieRepo.findMovieOrderByTitle();
 	}
 	
-	public List<Movie> findMovieOrderByGenre() {
-		return movieRepo.findMovieOrderByGenre();
-	}
-	
 	public List<Movie> findMovieOrderByReleaseYear() {
 		return movieRepo.findMovieOrderByReleaseYear();
 	}

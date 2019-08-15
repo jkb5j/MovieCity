@@ -13,7 +13,7 @@ public interface MovieRepo extends JpaRepository<Movie, Integer>{
 	List<Movie> findMovieOrderByTitle();
 	
 	@Query("FROM Movie m ORDER BY genre")
-	List<Movie> findMovieOrderByGenre();
+	List<Movie> findAll();
 	
 	@Query("FROM Movie m ORDER BY releaseYear")
 	List<Movie> findMovieOrderByReleaseYear();
