@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RevLogo from '../../assets/rev-logo.png';
+//import RevLogo from '../../assets/rev-logo.png';
+import RevLogo from '../../assets/movie_city-logo.png';
+//import MovirLogo from '../../assets/movie_city-logo.png';
 
 export class NavComponent extends React.Component {
   render() {
@@ -26,7 +28,7 @@ export class NavComponent extends React.Component {
               <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</div>
               <div className="dropdown-menu" aria-labelledby="examples-dropdown">
                 <div className="dropdown-item"><Link to="/my-user" className="unset-anchor nav-link active">My Info</Link></div>
-                <div className="dropdown-item"><Link to="/find-user" className="unset-anchor nav-link active">Find User</Link></div>
+                <div className="dropdown-item"><Link to="/username/{username}" className="unset-anchor nav-link active">Find User</Link></div>
                 <div className="dropdown-item"><Link to="/requests" className="unset-anchor nav-link active">Requests</Link></div>
               </div>
             </li>

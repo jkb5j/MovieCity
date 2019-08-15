@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import { Movie } from '../../../models/movie';
 import { Genre } from '../../../models/genre';
 import { environment } from '../../../environment';
@@ -82,6 +82,21 @@ export default class GetMovies extends Component<{}, IState> {
         })
     }
 
+    //might need to make a find plot by movie id 
+    // getMoviesPlots = async (genre: Genre) => {
+    //     const resp = await fetch(environment.context + '/movies/filter/genre/' + genre.genreId, {
+    //         credentials: 'include'
+    //     });
+    //     const moviesFromServer = await resp.json();
+    //     this.setState({
+    //         movies: moviesFromServer,
+    //         genreDropdown: {
+    //             ...this.state.genreDropdown,
+    //             selection: genre.genre
+    //         }
+    //     })
+    // }
+
     toggleGenreDropdown = () => {
         this.setState({
             genreDropdown: {
@@ -121,6 +136,7 @@ export default class GetMovies extends Component<{}, IState> {
                             <th scope="col">Release Year</th>
                             <th scope="col">Origin</th>
                             <th scope="col">Director</th>
+                            <th scope="col">Veiw Plot</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -132,6 +148,7 @@ export default class GetMovies extends Component<{}, IState> {
                                     <td>{movie.releaseYear}</td>
                                     <td>{movie.origin}</td>
                                     <td>{movie.director}</td>
+                                    <td><Button id="veiw-plot">Veiw Plot</Button> </td>
                                 </tr>
                                 )
                         }
