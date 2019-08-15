@@ -14,7 +14,7 @@ import { Pokemon } from './componentsproject1/pokemon/pokemon.component';
 import { Nested } from './componentsproject1/nested/nested.component';
 import { SignIn } from './components/sign-in/sign-in.component';
 import Cards from './componentsproject1/cards/cards.component';
-import Reimbursements from './componentsproject1/reimbursements/reimbursements.components';
+// import Reimbursements from './componentsproject1/reimbursements/reimbursements.components';
 import { PostReimbs } from './componentsproject1/post-reimbursements/post.reimbs';
 import { PatchReimbs } from './componentsproject1/update-reimbs/update.reimbursement';
 import { PatchUser } from './componentsproject1/update-user/update-user.component';
@@ -22,6 +22,7 @@ import Users from './componentsproject1/users/users.component';
 import MyUser from './componentsproject1/users/my.users.component';
 import GetMovies from './components/movies/get-movies/get-movies.component'
 import FavMovies from './components/movies/favorite-movies/fav-movies.component';
+import { PostUser } from './components/users/post-user/post-user.component';
 
 const App: React.FC = () => {
   return (
@@ -48,6 +49,7 @@ const App: React.FC = () => {
           <Route path="/first" component={FirstComponent} />
           <Route path="/my-user-info" component={MyUser} />
           <Route path="/all-users" component={Users} />
+          <Route path="/post-user" component={PostUser} />
           <Route component={NotFound} />
         </Switch>
       </div>
