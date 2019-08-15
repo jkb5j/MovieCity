@@ -24,4 +24,8 @@ public class RecommendService {
 	public List<Recommendations> findByReceiver(int userid) {
 		return recommendRepo.findByReceiver(userid);
 	}
+
+	public Recommendations changeStatus(int recId, int sendId, Recommendations recom) {
+		return recommendRepo.saveAndFlush(recom);
+	}
 }

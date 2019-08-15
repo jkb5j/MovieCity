@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movie_city.models.Movie;
+import com.movie_city.models.Role;
 import com.movie_city.models.User;
 import com.movie_city.repos.MovieRepo;
 import com.movie_city.repos.UserRepo;
@@ -32,6 +33,7 @@ public class UserService {
 	}
 
 	public User save(User user) {
+		user.setRole(new Role(2, "user"));
 		return userRepo.saveAndFlush(user);
 	}
 
