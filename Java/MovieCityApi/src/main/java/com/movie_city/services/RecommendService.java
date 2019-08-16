@@ -5,13 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.movie_city.models.Movie;
 import com.movie_city.models.Recommendations;
+import com.movie_city.repos.MovieRepo;
 import com.movie_city.repos.RecommendRepo;
+import com.movie_city.repos.UserRepo;
 
 @Service
 public class RecommendService {
 	@Autowired
 	private RecommendRepo recommendRepo;
+	@Autowired
+	private UserRepo ur;
+	@Autowired
+	private MovieRepo mr;
 	
 	public List<Recommendations> findAll() {
 		return recommendRepo.findAll();
@@ -25,7 +32,9 @@ public class RecommendService {
 		return recommendRepo.findByReceiver(userid);
 	}
 
-	public Recommendations changeStatus(int recId, int sendId, Recommendations recom) {
+	public Recommendations recommendMovie(int recId, int sendId, Movie m) {
+		Recommendations recom = new Recommendations(0, ur.getOne(recId), 
+				ur.getOne(sendId), mr.getOne(m.getMovieId()));		
 		return recommendRepo.saveAndFlush(recom);
 	}
 }

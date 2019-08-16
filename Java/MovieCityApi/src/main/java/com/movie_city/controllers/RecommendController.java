@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movie_city.models.Movie;
 import com.movie_city.models.Recommendations;
 import com.movie_city.services.RecommendService;
 
@@ -33,8 +34,8 @@ public class RecommendController {
 	public List<Recommendations> findByReceiver(@PathVariable int userid) {
 		return recommendService.findByReceiver(userid);
 	}
-	@PutMapping("receiver/{recId}/status/{sendId}") // Test
-	private Recommendations changeStatus(@PathVariable int recId, @PathVariable int sendId, @RequestBody Recommendations recom) {
-		return recommendService.changeStatus(recId, sendId, recom);
+	@PutMapping("receiver/{recId}/sender/{sendId}") // Test
+	private Recommendations recommendMovie(@PathVariable int recId, @PathVariable int sendId, @RequestBody Movie m) {
+		return recommendService.recommendMovie(recId, sendId, m);
 	}
 }
