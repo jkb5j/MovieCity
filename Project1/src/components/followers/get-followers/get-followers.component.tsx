@@ -1,24 +1,17 @@
  import React, { Component } from 'react';
 // import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-// import { ReimbursementStatus } from '../../modelsproject1/reimb.status';
 // import { environment } from '../../../environment';
 // import { User } from '../../../models/user';
 
 // interface IState {
-//     username: string,
-//     email: string
-//     firstName: string,
-//     lastName: string
+//     follower: User[]
 // }
 
 // export default class Followers extends Component<{}, IState> {
 //     constructor(props: any) {
 //         super(props);
 //         this.state = {
-//             username: "",
-//             email: "",
-//             firstName: "",
-//             lastName: ""
+//             follower: []
 //         };
 //     }
 
@@ -48,7 +41,7 @@
 //     }
 
 //     render() {
-//         const reimbs = this.state.reimbs;
+//         const followers = this.state.followers;
 //         return(
 //             <div id="reimb-table-container">
 //                 <table className="table table-striped table-dark">
