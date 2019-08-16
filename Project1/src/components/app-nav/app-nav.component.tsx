@@ -18,6 +18,9 @@ export class NavComponent extends React.Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarsExample04">
           <ul className="navbar-nav ml-auto margin-nav">
+          <li className="nav-item active">
+                <Link to="/profile" className="unset-anchor nav-link">User Profile</Link>
+            </li>
             <li className="nav-item active">
                 <Link to="/followers" className="unset-anchor nav-link">Followers</Link>
             </li>

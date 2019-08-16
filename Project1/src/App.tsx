@@ -25,6 +25,7 @@ import FavMovies from './components/movies/favorite-movies/fav-movies.component'
 import { PostUser } from './components/users/post-user/post-user.component';
 import GetUsers from './components/users/get-users/get-users.component';
 import { UpdateUser } from './components/users/update-user/update-user.component';
+import {UserProfile} from './components/profile/user-profile.component'
 
 const App: React.FC = () => {
   return (
@@ -54,6 +55,7 @@ const App: React.FC = () => {
           <Route path="/post-user" component={PostUser} />
           <Route path="/find-users" component={GetUsers} />
           <Route path="/patch-user" component={UpdateUser} />
+          <Route path="/profile" component={UserProfile}/>
           <Route component={NotFound} />
         </Switch>
       </div>

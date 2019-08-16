@@ -56,19 +56,35 @@ nav {
 
 
 /*******************************************************
-Clicker
+User Profile
 *******************************************************/
-.green {
-  color: green;
+.profile-container {
+  // margin-top: 5em;
+}
+// .user-container {
+//   margin: 0 auto;
+// }
+.follower-container {
+  margin-top: 3em;
+}
+.view-user-container {
+  border: 1px solid #000;
+  margin: 0 auto;
+  width: 30em;
+  height: 25em;
+}
+.view-followers-container {
+  border: 1px solid #000;
+  width: 30em;
+  height: 15em;
 }
 
-.yellow {
-  color: yellow;
+.view-movies-container {
+  border: 1px solid black;
+  width: 40em;
+  height: 25em;
 }
 
-.red {
-  color: red;
-}
 
 /********************************************************
 Cards
