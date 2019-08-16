@@ -4,7 +4,6 @@ import { Movie } from '../../../models/movie';
 import { Genre } from '../../../models/genre';
 import { environment } from '../../../environment';
 import { Modal, Alert } from 'reactstrap';
-import { async } from 'q';
 
 
 interface IState {
