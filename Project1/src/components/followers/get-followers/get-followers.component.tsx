@@ -1,16 +1,19 @@
  import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
+import { Button } from 'reactstrap';
 
 interface IState {
-    follower: User[]
+    follower: User[],
+    selectedFollower: 0
 }
 
 export default class GetFollowers extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            follower: []
+            follower: [],
+            selectedFollower: 0
         };
     }
 
@@ -19,9 +22,19 @@ export default class GetFollowers extends Component<{}, IState> {
     };
     // /followers/{userId}
     getFollowers = async () => {
-        console.log('get followers method');
         const resp = await fetch(environment.context + '/users/followers/' + '1'/*logged in user*/, {
             credentials: 'include'
+        });
+        const followersFromServer = await resp.json();
+        this.setState({
+            follower: followersFromServer
+        });
+    }
+    unfollow = async (followerId: Number) => {
+        const resp = await fetch(environment.context + '/users/followers/' + '1'/*logged in user*/
+            + '/unfollow/' + followerId, {
+                method: 'DELETE',
+                credentials: 'include'
         });
         const followersFromServer = await resp.json();
         this.setState({
@@ -64,6 +77,10 @@ export default class GetFollowers extends Component<{}, IState> {
                                     <td>{follower.firstName}</td>
                                     <td>{follower.lastName}</td>
                                     <td>{follower.email}</td>
+                                    <td><Button className="followerId, btn btn-primary" type="button" onClick={() => this.unfollow(follower.userId)}>
+                                        Unfollow
+                                        </Button></td>
+                                    
                                 </tr>
                                 )
                         }
