@@ -34,8 +34,8 @@ public class RecommendController {
 	public List<Recommendations> findByReceiver(@PathVariable int userid) {
 		return recommendService.findByReceiver(userid);
 	}
-	@PutMapping("receiver/{recId}/sender/{sendId}") // Test
-	private Recommendations recommendMovie(@PathVariable int recId, @PathVariable int sendId, @RequestBody Movie m) {
-		return recommendService.recommendMovie(recId, sendId, m);
+	@PutMapping("receiver/{recId}/sender/{sendId}/movie/{movieId}") // Test
+	private Recommendations recommendMovie(@PathVariable int recId, @PathVariable int sendId, @PathVariable int movieId) {
+		return recommendService.recommendMovie(recId, sendId, movieId);
 	}
 }

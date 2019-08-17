@@ -32,9 +32,9 @@ public class RecommendService {
 		return recommendRepo.findByReceiver(userid);
 	}
 
-	public Recommendations recommendMovie(int recId, int sendId, Movie m) {
+	public Recommendations recommendMovie(int recId, int sendId, int movieId) {
 		Recommendations recom = new Recommendations(0, ur.getOne(recId), 
-				ur.getOne(sendId), mr.getOne(m.getMovieId()));		
+				ur.getOne(sendId), mr.getOne(movieId));		
 		return recommendRepo.saveAndFlush(recom);
 	}
 }

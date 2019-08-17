@@ -50,15 +50,15 @@ public class UserService {
 		}
 	}
 	@Transactional
-	public User unfavoriteMovie(int userId, Movie m) {
+	public User unfavoriteMovie(int userId, int movieId) {
 		User u = userRepo.getOne(userId);
-		u.getFavorites().removeIf(Movie -> Movie.getMovieId() == m.getMovieId());
+		u.getFavorites().removeIf(Movie -> Movie.getMovieId() == movieId);
 		return u;
 	}
 	@Transactional
-	public User favoriteMovie(int userId, Movie m) {
+	public User favoriteMovie(int userId, int movieId) {
 		User u = userRepo.getOne(userId);
-		Movie movie = movieRepo.getOne(m.getMovieId());
+		Movie movie = movieRepo.getOne(movieId);
 		u.getFavorites().add(movie);
 		return u;
 	}
@@ -73,17 +73,17 @@ public class UserService {
 		return u.getFriends();
 	}
 	@Transactional
-	public List<User> unfriend(int userId, User u) {
+	public List<User> unfriend(int userId, int friendId) {
 		User mainUser = userRepo.getOne(userId);
 		User oldUser = userRepo.getOne(userId);
-		mainUser.getFriends().removeIf(User -> User.getUserId() == u.getUserId());
+		mainUser.getFriends().removeIf(User -> User.getUserId() == friendId);
 		mainUser.getFollowers().add(oldUser);
 		return mainUser.getFriends();
 	}
 	@Transactional
-	public List<User> addFriend(int userId, User u) {
+	public List<User> addFriend(int userId, int friendId) {
 		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(u.getUserId());
+		User oldUser = userRepo.getOne(friendId);
 		mainUser.getFriends().add(oldUser);
 		return mainUser.getFriends();
 	}
@@ -93,15 +93,15 @@ public class UserService {
 		return mainUser.getFollowers();
 	}
 	@Transactional
-	public List<User> unfollow(int userId, User u) {
+	public List<User> unfollow(int userId, int unfollowId) {
 		User mainUser = userRepo.getOne(userId);
-		mainUser.getFollowers().removeIf(User -> User.getUserId() == u.getUserId());
+		mainUser.getFollowers().removeIf(User -> User.getUserId() == unfollowId);
 		return mainUser.getFollowers();
 	}
 	@Transactional
-	public List<User> follow(int userId, User u) {
+	public List<User> follow(int userId, int followId) {
 		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(u.getUserId());
+		User oldUser = userRepo.getOne(followId);
 		mainUser.getFollowers().add(oldUser);
 		return mainUser.getFollowers();
 	}
