@@ -4,16 +4,14 @@ import { User } from '../../../models/user';
 import { Button } from 'reactstrap';
 
 interface IState {
-    follower: User[],
-    selectedFollower: 0
+    follower: User[]
 }
 
 export default class GetFollowers extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            follower: [],
-            selectedFollower: 0
+            follower: []
         };
     }
 
@@ -41,20 +39,6 @@ export default class GetFollowers extends Component<{}, IState> {
             follower: followersFromServer
         });
     }
-    
-    // getReimbursementsByStatus = async (status: ReimbursementStatus) => {
-    //     const resp = await fetch(environment.context + '/reimb/reimb/' + status.statusId, {
-    //         credentials: 'include'
-    //     });
-    //     const reimbsFromServer = await resp.json();
-    //     this.setState({
-    //         reimbs: reimbsFromServer,
-    //         statusDropdown: {
-    //             ...this.state.statusDropdown,
-    //             selection: status.status
-    //         }
-    //     })
-    // }
 
     render() {
         const followers = this.state.follower;

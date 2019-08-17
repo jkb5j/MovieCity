@@ -21,6 +21,7 @@ import GetUsers from './components/users/get-users/get-users.component';
 import { UpdateUser } from './components/users/update-user/update-user.component';
 import {UserProfile} from './components/profile/user-profile.component';
 import GetFollowers from './components/followers/get-followers/get-followers.component';
+import GetRecommendations from './components/recommendations/get-recommendations/get-recommendations.component';
 
 const App: React.FC = () => {
   return (
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/movies" component={GetMovies} />
           <Route path="/favorite-movie" component={FavMovies} />
           <Route path="/followers" component={GetFollowers} />
+          <Route path="/recommendations" component={GetRecommendations} />
           <Route path="/post-reimbs" component={PostReimbs} />
           <Route path="/update-reimbs" component={PatchReimbs} />
           <Route path="/update-user" component={PatchUser} />
