@@ -31,7 +31,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/movies" component={GetMovies} />
           <Route path="/favorite-movie" component={FavMovies} />
-          <Route path="/users/followers" component={GetFollowers} />
+          <Route path="/followers" component={GetFollowers} />
           <Route path="/post-reimbs" component={PostReimbs} />
           <Route path="/update-reimbs" component={PatchReimbs} />
           <Route path="/update-user" component={PatchUser} />

@@ -18,11 +18,15 @@ export default class GetFollowers extends Component<{}, IState> {
         this.getFollowers();
     };
     // /followers/{userId}
-    getFollowers = async (user: User) => {
-        const resp = await fetch(environment.context + 'users/followers/' + user.userId, {
+    getFollowers = async () => {
+        console.log('get followers method');
+        const resp = await fetch(environment.context + '/users/followers/' + '1'/*logged in user*/, {
             credentials: 'include'
         });
-        
+        const followersFromServer = await resp.json();
+        this.setState({
+            follower: followersFromServer
+        });
     }
     
     // getReimbursementsByStatus = async (status: ReimbursementStatus) => {
@@ -55,7 +59,7 @@ export default class GetFollowers extends Component<{}, IState> {
                     <tbody>
                         {
                             followers.map(follower =>
-                                <tr key={'reimbursementId-'+follower.userId}>
+                                <tr key={'followerId-'+follower.userId}>
                                     <td>{follower.username}</td>
                                     <td>{follower.firstName}</td>
                                     <td>{follower.lastName}</td>
