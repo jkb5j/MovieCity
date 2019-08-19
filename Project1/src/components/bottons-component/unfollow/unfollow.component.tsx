@@ -19,7 +19,7 @@ export default class Unfollow extends Component<{}, IState> {
             recipient: recipientId
         });
         const resp = await fetch(environment.context + '/users/followers/' + 1 /* this is the signed in user */ + '/unfollow/' + recipientId, {
-            method: 'PUT',
+            method: 'DELETE',
             credentials: 'include',
             headers: {
                 'content-type': 'application/json'
