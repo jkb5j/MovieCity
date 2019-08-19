@@ -13,4 +13,6 @@ public interface PendingRepo extends JpaRepository<Pending, Integer>{
 
 	List<Pending> findByAskingUserId(int askingId);
 
+	List<Pending> findByBeingAskedUserIdAndStatus(int beingAskedId, int status);
+
 }

@@ -32,7 +32,6 @@ public class PendingService {
 				User asking = pend.getAsking();
 				beingAsked.getFriends().add(asking);
 				asking.getFriends().add(beingAsked);
-				pend.setStatus(p.getStatus());
 			}
 			return pr.saveAndFlush(pend);
 		} else {
@@ -41,6 +40,7 @@ public class PendingService {
 	}
 
 	public List<Pending> findByBeingAsked(int beingAskedId) {
+		
 		return pr.findByBeingAskedUserId(beingAskedId);
 	}
 	public Pending save(int askingId, Pending p) {
@@ -51,6 +51,10 @@ public class PendingService {
 	}
 	public List<Pending> findByAsking(int askingId) {
 		return pr.findByAskingUserId(askingId);
+	}
+	// find all with pending status
+	public List<Pending> findByBeingAskedAndStatus(int beingAskedId) {
+		return pr.findByBeingAskedUserIdAndStatus(beingAskedId, 0);
 	}
 
 }

@@ -29,6 +29,11 @@ public class PendingController {
 		return pendingService.findByBeingAsked(beingAskedId);
 	}
 	
+	@GetMapping("/being-asked/{beingAskedId}/pending")
+	private List<Pending> findByBeingAskedAndStatus(@PathVariable int beingAskedId) {
+		return pendingService.findByBeingAskedAndStatus(beingAskedId);
+	}
+	
 	@GetMapping("/asking/{askingId}")
 	private List<Pending> findByAsking(@PathVariable int askingId) {
 		return pendingService.findByAsking(askingId);
