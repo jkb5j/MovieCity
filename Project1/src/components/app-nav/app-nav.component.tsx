@@ -22,7 +22,7 @@ export class NavComponent extends React.Component {
                 <Link to="/profile" className="unset-anchor nav-link">User Profile</Link>
             </li>
             <li className="nav-item active">
-                <Link to="/followers" className="unset-anchor nav-link">Followers</Link>
+                <Link to="/followers" className="unset-anchor nav-link">Following</Link>
             </li>
             <li className="nav-item active">
                 <Link to="/friends" className="unset-anchor nav-link">Friends</Link>
@@ -36,9 +36,6 @@ export class NavComponent extends React.Component {
                 <div className="dropdown-item"><Link to="/post-user" className="unset-anchor nav-link active">Create A User</Link></div>
               </div>
             </li>
-            <li className="nav-item active">
-                <Link to="/sign-in" className="unset-anchor nav-link">Sign In</Link>
-            </li>
             <li className="nav-item active dropdown">
               <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Movies</div>
               <div className="dropdown-menu" aria-labelledby="examples-dropdown">
@@ -49,6 +46,9 @@ export class NavComponent extends React.Component {
                 <div className="dropdown-item"><Link to="/update-movie" className="unset-anchor nav-link active">Update Movie</Link></div>
                 <div className="dropdown-item"><Link to="/post-movie" className="unset-anchor nav-link active">Add Movie</Link></div>
               </div>
+            </li>
+            <li className="nav-item active">
+                <Link to="/sign-in" className="unset-anchor nav-link">Sign In</Link>
             </li>
           </ul>
         </div>
