@@ -43,9 +43,11 @@ public class PendingService {
 		
 		return pr.findByBeingAskedUserId(beingAskedId);
 	}
-	public Pending save(int askingId, Pending p) {
+	public Pending save(int askingId, int beingAskedId) {
+		Pending p = new Pending();
 		p.setStatus(0);
 		p.setAsking(ur.getOne(askingId));
+		p.setBeingAsked(ur.getOne(beingAskedId));
 		p.setPendingId(0);
 		return pr.saveAndFlush(p);
 	}

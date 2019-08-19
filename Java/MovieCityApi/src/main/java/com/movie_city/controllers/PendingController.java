@@ -44,8 +44,8 @@ public class PendingController {
 		return pendingService.update(pendingId, p);
 	}
 	
-	@PutMapping("/request/{askingId}")
-	private Pending save(@PathVariable int askingId, @RequestBody Pending p) {
-		return pendingService.save(askingId, p);
+	@PutMapping("/request/{askingId}/{beingAskedId}")
+	private Pending save(@PathVariable int askingId, @PathVariable int beingAskedId) {
+		return pendingService.save(askingId, beingAskedId);
 	}
 }
