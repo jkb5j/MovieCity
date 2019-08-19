@@ -14,7 +14,9 @@ interface IState {
         selection: string
     },
     plotModalShow: boolean,
-    currentSelectedPlot?: string
+    titleModalShow: boolean,
+    currentSelectedPlot?: string,
+    currentSelectedTitle?:string
 }
 
 export default class GetMovies extends Component<{}, IState> {
@@ -25,9 +27,10 @@ export default class GetMovies extends Component<{}, IState> {
             genre: [],
             genreDropdown: {
                 isOpen: false,
-                selection: 'All Movies'
+                selection: 'All Movies',
             },
-            plotModalShow: false
+            plotModalShow: false,
+            titleModalShow: false
         };
     }
 
@@ -88,10 +91,11 @@ export default class GetMovies extends Component<{}, IState> {
         })
     }
 
-    selectPlot = (plot: string) => {
+    selectPlot = (plot: string, title: string) => {
         this.setState({
             plotModalShow: true,
-            currentSelectedPlot: plot
+            currentSelectedPlot: plot,
+            currentSelectedTitle:title
         })
     }
 
@@ -138,7 +142,7 @@ export default class GetMovies extends Component<{}, IState> {
                                     <td>{movie.releaseYear}</td>
                                     <td>{movie.origin}</td>
                                     <td>{movie.director}</td>
-                                    <td><Button className="plot" type="button" class="btn btn-primary" onClick={() => this.selectPlot(movie.plot)}>
+                                    <td><Button className="plot" type="button" class="btn btn-primary" onClick={() => this.selectPlot(movie.plot, movie.title)}>
                                         Plot
                                                 </Button></td>
                                 </tr>
@@ -147,7 +151,7 @@ export default class GetMovies extends Component<{}, IState> {
                     </tbody>
                 </table>
                 <Modal isOpen={this.state.plotModalShow} toggle={this.togglePlotModalShow} >
-                    <ModalHeader toggle={this.togglePlotModalShow}>Modal title</ModalHeader>
+                    <ModalHeader isOpen={this.state.plotModalShow} toggle={this.togglePlotModalShow}>{this.state.currentSelectedTitle}</ModalHeader>
                     <ModalBody>
                         {this.state.currentSelectedPlot}
           </ModalBody>
