@@ -6,7 +6,7 @@ interface IState {
     recipient: Number
 }
 
-export default class GetPending extends Component<{}, IState> {
+export default class AddFriend extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
