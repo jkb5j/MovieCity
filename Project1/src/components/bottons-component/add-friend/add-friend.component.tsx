@@ -18,12 +18,11 @@ export default class GetPending extends Component<{}, IState> {
             }
         };
     }
-    
-    changeStatus = async (updatePendingId: Number, updateStatus: Number) => {
+
+    changeStatus = async (recipientId: Number) => {
         this.setState({
-            updatePending: {
-                pendingId: updatePendingId,
-                status: updateStatus
+            addFriend: {
+                recipient: recipientId
             }
         });
         const resp = await fetch(environment.context + '/pending/request' + updatePendingId /* this is the signed in user */ + askingId,{
