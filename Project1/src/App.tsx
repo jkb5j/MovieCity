@@ -8,9 +8,7 @@ import { Norris } from './componentsproject1/norris/norris.component';
 import { Pokemon } from './componentsproject1/pokemon/pokemon.component';
 import { Nested } from './componentsproject1/nested/nested.component';
 import { SignIn } from './components/sign-in/sign-in.component';
-// import Reimbursements from './componentsproject1/reimbursements/reimbursements.components';
 import { PostReimbs } from './componentsproject1/post-reimbursements/post.reimbs';
-import { PatchReimbs } from './componentsproject1/update-reimbs/update.reimbursement';
 import { PatchUser } from './componentsproject1/update-user/update-user.component';
 import Users from './componentsproject1/users/users.component';
 import MyUser from './componentsproject1/users/my.users.component';
@@ -22,6 +20,7 @@ import { UpdateUser } from './components/users/update-user/update-user.component
 import {UserProfile} from './components/profile/user-profile.component';
 import GetFollowers from './components/followers/get-followers/get-followers.component';
 import GetRecommendations from './components/recommendations/get-recommendations/get-recommendations.component';
+import GetPending from './components/pending/get-pending/get-pending.component';
 
 const App: React.FC = () => {
   return (
@@ -35,7 +34,7 @@ const App: React.FC = () => {
           <Route path="/followers" component={GetFollowers} />
           <Route path="/recommendations" component={GetRecommendations} />
           <Route path="/post-reimbs" component={PostReimbs} />
-          <Route path="/update-reimbs" component={PatchReimbs} />
+          <Route path="/pending" component={GetPending} />
           <Route path="/update-user" component={PatchUser} />
           <Route path="/chuck-norris" component={Norris} />
           <Route path="/nested" component={Nested} />

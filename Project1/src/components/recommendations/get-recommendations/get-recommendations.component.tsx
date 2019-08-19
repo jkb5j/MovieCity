@@ -79,31 +79,6 @@ export default class GetRecommendations extends Component<{}, IState> {
                                         </Button></td>
                                     
                                 </tr>
-                                // recom.map(rec => 
-                                //     <tr key={'recomendationsId-'+rec.recommendationId}>
-                                //     <td>{rec.movie}</td>
-                                //     <td></td>
-                                //     <td><Button className="recommendationsId, btn btn-primary" type="button" onClick={() => this.favorite(rec.movie.movieId)}>
-                                //         Favorite
-                                //         </Button></td>
-                                //     <td><Button className="recommendationsId, btn btn-primary" type="button" onClick={() => this.noThanks(rec.movie.movieId)}>
-                                //         No Thanks
-                                //         </Button></td>
-                                    
-                                // </tr>
-                                //     )
-                                //<td></td>
-                                // <tr key={'recomendationsId-'+recom}>
-                                //     <td>{recom.sender}</td>
-                                //     <td>{recom.movie}</td>
-                                //     <td><Button className="recommendationsId, btn btn-primary" type="button" onClick={() => this.favorite(recom.movie.movieId)}>
-                                //         Favorite
-                                //         </Button></td>
-                                //     <td><Button className="recommendationsId, btn btn-primary" type="button" onClick={() => this.noThanks(recom.movie.movieId)}>
-                                //         No Thanks
-                                //         </Button></td>
-                                    
-                                // </tr>
                                 )
                         }
                     </tbody>
