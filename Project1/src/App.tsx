@@ -11,8 +11,9 @@ import GetUsers from './components/users/get-users/get-users.component';
 import { UpdateUser } from './components/users/update-user/update-user.component';
 import {UserProfile} from './components/profile/user-profile.component';
 import GetFollowers from './components/followers/get-followers/get-followers.component';
-import GetRecommendations from './components/recommendations/get-recommendations/get-recommendations.component';
 import GetPending from './components/pending/get-pending/get-pending.component';
+import MyFriends from './components/friends/get-friends/get-friends.component';
+import GetRecommendations from './components/recommendations/get-recommendations/get-recommendations.component';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const App: React.FC = () => {
           <Route path="/movies" component={GetMovies} />
           <Route path="/favorite-movie" component={FavMovies} />
           <Route path="/followers" component={GetFollowers} />
-          <Route path="/recommendations" component={GetRecommendations} />
+          <Route path="/friends" component={MyFriends} />
           <Route path="/pending" component={GetPending} />
           <Route path="/chuck-norris" component={Norris} />
           <Route path="/sign-in" component={SignIn} />
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/find-users" component={GetUsers} />
           <Route path="/patch-user" component={UpdateUser} />
           <Route path="/profile" component={UserProfile}/>
+          <Route path="/recommended-movie" component={GetRecommendations}/>
         </Switch>
       </div>
     </BrowserRouter>
