@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
+import { Button } from 'reactstrap';
 
 interface IState {
     users: User[]
@@ -17,7 +18,15 @@ export default class MyFriends extends Component<{}, IState> {
     async componentDidMount() {
         this.getFriends();
     };
-
+    unfriend = async (recipientId: Number) => {
+        const resp = await fetch(environment.context + '/users/friends/' + 1 /* this is the signed in user */ + '/unfriend/' + recipientId, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+    }
     getFriends = async () => {
         //add the person who is logged in's user_id where the 1 is
         const resp = await fetch(environment.context + '/users/friends/1/', {
@@ -50,6 +59,9 @@ export default class MyFriends extends Component<{}, IState> {
                                     <td>{user.email}</td>
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
+                                    <td><Button className="btn btn-primary" type="button" onClick={() => this.unfriend(user.userId)}>
+                                        Unfriend
+                                        </Button></td>
                                 </tr>
                                 )
                         }
