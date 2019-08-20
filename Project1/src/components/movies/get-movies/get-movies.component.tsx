@@ -16,7 +16,8 @@ interface IState {
     plotModalShow: boolean,
     titleModalShow: boolean,
     currentSelectedPlot?: string,
-    currentSelectedTitle?:string
+    currentSelectedTitle?:string,
+    favMovie: Number
 }
 
 export default class GetMovies extends Component<{}, IState> {
@@ -30,7 +31,8 @@ export default class GetMovies extends Component<{}, IState> {
                 selection: 'All Movies',
             },
             plotModalShow: false,
-            titleModalShow: false
+            titleModalShow: false,
+            favMovie: 0
         };
     }
 
@@ -98,6 +100,18 @@ export default class GetMovies extends Component<{}, IState> {
             currentSelectedTitle:title
         })
     }
+    favoriteMovie = async (favMovieId: Number) => {
+        this.setState({
+            favMovie: favMovieId
+        });
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') +'/movie/' + favMovieId,{
+                method: 'PUT',
+                credentials: 'include',
+                headers: {
+                    'content-type': 'application/json'
+                }
+        });
+    }
 
 
     render() {
@@ -145,6 +159,12 @@ export default class GetMovies extends Component<{}, IState> {
                                     <td><Button className="plot" type="button" class="btn btn-primary" onClick={() => this.selectPlot(movie.plot, movie.title)}>
                                         Plot
                                                 </Button></td>
+                                    <td>
+                                    <Button className="btn btn-primary" type="button" 
+                                        onClick={() => this.favoriteMovie(movie.movieId)}>
+                                            Favorite Movie
+                                            </Button>
+                                    </td>
                                 </tr>
                             )
                         }
