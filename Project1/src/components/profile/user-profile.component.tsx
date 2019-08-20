@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, unstable_Profiler } from 'react';
 import {User} from '../../models/user';
 import { Input } from 'reactstrap';
+import FavMovies from '../movies/favorite-movies/fav-movies.component';
+import GetFollowers from '../followers/get-followers/get-followers.component';
+import MyFriends from '../friends/get-friends/get-friends.component';
 // import {follower} from '../../models/followers';
 // import {friend} from '../../models/friends';
 // import {movie} from '../../models/movie';
@@ -8,8 +11,7 @@ import { Input } from 'reactstrap';
 
 
 interface IState{
-    users:User[],
-
+    users:User[]
 }
 
 export class UserProfile extends Component<{}, IState> {
@@ -19,28 +21,29 @@ export class UserProfile extends Component<{}, IState> {
 
         return(
                 <div>
-                    <div className="row profile-container">
-                        <div className="col-md-5 user-container">
-                            <p>Users</p>
-                            <div className="view-user-container">
-                                <p>Image will go here</p>
+                    <div >
+                        <div >
+                            <p>User</p>
+                            <p>req.session.user.userId</p>
+                        </div>
+                        <div >
+                            <div >
+                                <FavMovies/>
                             </div>
                         </div>
-                        <div className="col-md-7">
-                            <p>Movies</p>
-                            <Input type="text" placeholder="Title"></Input>
-                            <button type="submit">Submit</button>
-                            <div className="view-movies-container">
-                                <p>Movies will go here</p>
-                            </div>
-                        </div>
-                    </div> 
-                    <div className="col-md-5 follower-container">
+                        
+                    </div>
+                    <div>
                         <p>Followers</p>
-                        <div className="view-followers-container">
-                            <p>followers will go here</p>
+                        <div>
+                            <GetFollowers/>
                         </div>
                     </div>
+                    <div>
+                        <p>Friends</p>
+                        <MyFriends/>    
+                    </div> 
+                    
 
                 </div>
         )
