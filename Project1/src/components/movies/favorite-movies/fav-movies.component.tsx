@@ -8,7 +8,8 @@ interface IState {
     plotModalShow: boolean,
     titleModalShow: boolean,
     currentSelectedPlot?: string,
-    currentSelectedTitle?:string
+    currentSelectedTitle?:string,
+    favMovie: Number
 }
 
 export default class FavMovies extends Component<{}, IState> {
@@ -17,7 +18,8 @@ export default class FavMovies extends Component<{}, IState> {
         this.state = {
             movies: [],
             plotModalShow: false,
-            titleModalShow: false
+            titleModalShow: false,
+            favMovie: 0
         };
     }
 
@@ -50,6 +52,19 @@ export default class FavMovies extends Component<{}, IState> {
         })
     }
 
+    unfavoriteMovie = async (favMovieId: Number) => {
+        this.setState({
+            favMovie: favMovieId
+        });
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') +'/movie/' + favMovieId,{
+                method: 'DELETE',
+                credentials: 'include',
+                headers: {
+                    'content-type': 'application/json'
+                }
+        });
+    }
+
     render() {
         const movies = this.state.movies;
         return(
@@ -77,6 +92,12 @@ export default class FavMovies extends Component<{}, IState> {
                                     <td><Button className="plot" type="button" class="btn btn-primary" onClick={() => this.selectPlot(movie.plot, movie.title)}>
                                         Plot
                                                 </Button></td>
+                                    <td>
+                                    <Button className="btn btn-primary" type="button" 
+                                        onClick={() => this.unfavoriteMovie(movie.movieId)}>
+                                            Unfavorite Movie
+                                            </Button>
+                                    </td>
                                 </tr>
                                 )
                         }
