@@ -20,7 +20,7 @@ export default class GetFollowers extends Component<{}, IState> {
     };
     // /followers/{userId}
     getFollowers = async () => {
-        const resp = await fetch(environment.context + '/users/followers/' + '1'/*logged in user*/, {
+        const resp = await fetch(environment.context + '/users/followers/' + localStorage.getItem('userId'), {
             credentials: 'include'
         });
         const followersFromServer = await resp.json();
@@ -29,7 +29,7 @@ export default class GetFollowers extends Component<{}, IState> {
         });
     }
     unfollow = async (followerId: Number) => {
-        const resp = await fetch(environment.context + '/users/followers/' + '1'/*logged in user*/
+        const resp = await fetch(environment.context + '/users/followers/' + localStorage.getItem('userId')/*logged in user*/
             + '/unfollow/' + followerId, {
                 method: 'DELETE',
                 credentials: 'include'

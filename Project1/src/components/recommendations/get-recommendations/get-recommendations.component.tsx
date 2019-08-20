@@ -22,7 +22,7 @@ export default class GetRecommendations extends Component<{}, IState> {
     };
     // /followers/{userId}
     getRecommendations = async () => {
-        const resp = await fetch(environment.context + '/recs/receiver/' + '1'/*logged in user*/, {
+        const resp = await fetch(environment.context + '/recs/receiver/' + localStorage.getItem('userId'), {
             credentials: 'include'
         });
         const recomFromServer = await resp.json();
@@ -32,7 +32,7 @@ export default class GetRecommendations extends Component<{}, IState> {
         console.log(recomFromServer)
     }
     noThanks = async (movieId: Number) => {
-        const resp = await fetch(environment.context + '/recs/receiver/' + '1'/*logged in user*/
+        const resp = await fetch(environment.context + '/recs/receiver/' + localStorage.getItem('userId')
             + '/movie/' + movieId, {
                 method: 'DELETE',
                 credentials: 'include'
@@ -43,7 +43,7 @@ export default class GetRecommendations extends Component<{}, IState> {
         });
     }
     favorite = async (movieId: Number) => {
-        const resp = await fetch(environment.context + '/users/favorites/' + '1'/*logged in user*/ + 
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') + 
         '/movie/' + movieId, {
             method: 'PUT',
             credentials: 'include'

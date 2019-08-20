@@ -26,8 +26,7 @@ export default class FavMovies extends Component<{}, IState> {
     };
 
     getFavMovies = async () => {
-        //add the person who is logged in's user_id where the 1 is
-        const resp = await fetch(environment.context + '/users/favorites/1/', {
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId'), {
             credentials: 'include'
         });
         const moviesFromServer = await resp.json();

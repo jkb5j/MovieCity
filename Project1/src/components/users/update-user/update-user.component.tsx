@@ -6,7 +6,6 @@ import { environment } from '../../../environment';
 
 interface IState {
     postinginfo: {
-        userId: 0,
         username: string,
         password: string,
         email: string,
@@ -21,7 +20,6 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
         super(props);
         this.state = {
             postinginfo: {
-                userId: 0,
                 username: '',
                 password: '',
                 email: '',
@@ -44,7 +42,7 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
     submit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-            const resp = await fetch(environment.context + '/users/' + this.state.postinginfo.userId, {
+            const resp = await fetch(environment.context + '/users/' + localStorage.getItem('userId'), {
                 method: 'PUT',
                 credentials: 'include',
                 body: JSON.stringify(this.state.postinginfo),
@@ -65,14 +63,7 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
         return (
             <form className="user-post-form" onSubmit={this.submit}>
                 <h1 className="posting title">Please Provide User Information</h1>
-                <label htmlFor="inputUserId" className="text-only">Input UserId</label>
-                <input type="number" id="inputUserId"
-                name="userId"
-                className="form-control"
-                placeholder="user-id."
-                onChange={this.handleChange}
-                value={this.state.postinginfo.userId} required />
-                <label htmlFor="inputUsername" className="text-only">Input Username</label>
+                <label htmlFor="inputUsername" className="text-only">{localStorage.getItem('username')}</label>
                 <input type="text" id="inputUsername"
                 name="username"
                 className="form-control"

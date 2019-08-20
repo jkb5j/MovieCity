@@ -28,7 +28,7 @@ export default class GetPending extends Component<{}, IState> {
     };
 
     getPending = async () => {
-        const resp = await fetch(environment.context + '/pending/being-asked/' + '1'/*logged in user*/  + '/pending', {
+        const resp = await fetch(environment.context + '/pending/being-asked/' + localStorage.getItem('userId') + '/pending', {
             credentials: 'include'
         });
         const pendingFromServer = await resp.json();

@@ -19,7 +19,7 @@ export default class MyFriends extends Component<{}, IState> {
         this.getFriends();
     };
     unfriend = async (recipientId: Number) => {
-        const resp = await fetch(environment.context + '/users/friends/' + 1 /* this is the signed in user */ + '/unfriend/' + recipientId, {
+        const resp = await fetch(environment.context + '/users/friends/' + localStorage.getItem('userId') + '/unfriend/' + recipientId, {
             method: 'DELETE',
             credentials: 'include',
             headers: {
@@ -28,8 +28,7 @@ export default class MyFriends extends Component<{}, IState> {
         });
     }
     getFriends = async () => {
-        //add the person who is logged in's user_id where the 1 is
-        const resp = await fetch(environment.context + '/users/friends/1/', {
+        const resp = await fetch(environment.context + '/users/friends/' + localStorage.getItem('userId'), {
             credentials: 'include'
         });
         const usersFromServer = await resp.json();
