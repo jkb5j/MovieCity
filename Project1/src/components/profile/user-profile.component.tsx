@@ -24,7 +24,7 @@ export class UserProfile extends Component<{}, IState> {
                     <div >
                         <div >
                             <p>User</p>
-                            <p>req.session.user.userId</p>
+                            <p>{localStorage.getItem('username')}</p>
                         </div>
                         <div >
                             <div >
@@ -43,8 +43,6 @@ export class UserProfile extends Component<{}, IState> {
                         <p>Friends</p>
                         <MyFriends/>    
                     </div> 
-                    
-
                 </div>
         )
     }
