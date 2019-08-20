@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import RevLogo from '../../assets/rev-logo.png';
 import RevLogo from '../../assets/movie_city-logo.png';
-//import MovirLogo from '../../assets/movie_city-logo.png';
 
 export class NavComponent extends React.Component {
   render() {
@@ -42,9 +40,9 @@ export class NavComponent extends React.Component {
                 <div className="dropdown-item"><Link to="/movies" className="unset-anchor nav-link active">All Movies</Link></div>
                 <div className="dropdown-item"><Link to="/recommended-movie" className="unset-anchor nav-link active">Recommeneded Movies</Link></div>
                 <div className="dropdown-item"><Link to="/favorite-movie" className="unset-anchor nav-link active">Favorite Movies</Link></div>
-                <div className="dropdown-item"><Link to="/find-movie" className="unset-anchor nav-link active">Find Movie</Link></div>
+                {/* <div className="dropdown-item"><Link to="/find-movie" className="unset-anchor nav-link active">Find Movie</Link></div>
                 <div className="dropdown-item"><Link to="/update-movie" className="unset-anchor nav-link active">Update Movie</Link></div>
-                <div className="dropdown-item"><Link to="/post-movie" className="unset-anchor nav-link active">Add Movie</Link></div>
+                <div className="dropdown-item"><Link to="/post-movie" className="unset-anchor nav-link active">Add Movie</Link></div> */}
               </div>
             </li>
             <li className="nav-item active">
