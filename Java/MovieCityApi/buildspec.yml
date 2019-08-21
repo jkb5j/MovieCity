@@ -4,11 +4,11 @@ phases:
     runtime-versions:
       java: openjdk8
     commands:
-      - cd MovieCity/Java/MovieCityApi
+      - cd Java/MovieCityApi
   build:
     commands:
       - mvn clean package
 artifacts:
   files:
     - '**/*'
-  base-directory: 'MovieCity/Java/MovieCityApi'
+  base-directory: 'Java/MovieCityApi/target'
