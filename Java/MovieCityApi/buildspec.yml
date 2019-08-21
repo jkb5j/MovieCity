@@ -7,7 +7,7 @@ phases:
       - cd Java/MovieCityApi
   build:
     commands:
-      - mvn clean package
+      - mvn -Dmaven.test.skip=true package
 artifacts:
   files:
     - '**/*'
