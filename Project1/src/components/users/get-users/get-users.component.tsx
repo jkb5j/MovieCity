@@ -25,8 +25,7 @@ export default class GetUsers extends Component<{}, IState> {
     };
 
     getAllUsers = async () => {
-        //change the 1 to the session user
-        const resp = await fetch(environment.context + '/users/except/1', {
+        const resp = await fetch(environment.context + '/users/except/' + localStorage.getItem('userId'), {
             credentials: 'include'
         });
         const usersFromServer = await resp.json();

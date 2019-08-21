@@ -9,7 +9,7 @@ import com.movie_city.models.User;
 
 public interface UserRepo extends JpaRepository<User, Integer>{
 
-	User findByUsername(String username);
+	List<User> findByUsername(String username);
 	User findByUsernameAndPassword(String username, String password);
 	@Query("From User u WHERE NOT userId = :userId")
 	List<User> findAllBut(int userId);

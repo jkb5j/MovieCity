@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/username/{username}")
-	private User findByUsername(@PathVariable String username) {
+	private List<User> findByUsername(@PathVariable String username) {
 		return userService.findByUsername(username);
 	}
 	@GetMapping("/{id}")
