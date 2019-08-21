@@ -76,6 +76,7 @@ export default class GetUsers extends Component<{}, IState> {
                   <label>Enter Friend UserName</label>
                   <input type="text" id="inputUserName" name="username" className="form-control" onChange={this.handleChange} value={this.state.username} />
                   <Button color="success"  id="inputUserName" onClick={() => {this.findAUsers(this.state.username)}}>Find User</Button>
+                  <Button color="success"  id="inputUserName" onClick={() => {this.getAllUsers()}}>All Users</Button>
                 <table className="table table-striped table-dark">
                     <thead>
                         <tr>
