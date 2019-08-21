@@ -1,0 +1,14 @@
+version: 0.
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - cd MovieCity/Java/MovieCityApi
+  build:
+    commands:
+      - mvn clean package
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'MovieCity/Java/MovieCityApi'
