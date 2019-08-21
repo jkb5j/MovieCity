@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
+import { Button } from 'reactstrap';
 
 interface IState {
     users: User[],
+    username: string,
+    slection:string,
+    errorMessage?: string
 }
 
 export default class GetUsers extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            users: []
+            users: [],
+            username: '',
+            slection: ''
         };
     }
 
@@ -29,10 +35,48 @@ export default class GetUsers extends Component<{}, IState> {
         });
     }
 
+
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const name = event.target.name;
+        this.setState({
+            username: event.target.value,
+        });
+    }
+
+    // submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //     try{
+    //         console.log("usename stuff before");
+    //        this.findAUsers(this.state.username);
+    //        console.log("usename stuff After");
+    //     } catch (err) {
+    //         console.error(err);
+    //         this.setState({
+                
+    //             errorMessage: 'Wrong User Name'
+    //         });
+    //     }
+    // }
+
+    findAUsers= async (username:String) => {
+        //change the 1 to the session user
+        const resp = await fetch(environment.context + '/users/username/'+username, {
+            credentials: 'include'
+        });
+        const usersFromServer = await resp.json();
+        console.log(usersFromServer);
+        this.setState({
+            users: usersFromServer
+        });
+    }
+
     render() {
         const users = this.state.users;
         return(
             <div id="reimb-table-container">
+                  <label>Enter Friend UserName</label>
+                  <input type="text" id="inputUserName" name="username" className="form-control" onChange={this.handleChange} value={this.state.username} />
+                  <Button color="success"  id="inputUserName" onClick={() => {this.findAUsers(this.state.username)}}>Find User</Button>
                 <table className="table table-striped table-dark">
                     <thead>
                         <tr>
