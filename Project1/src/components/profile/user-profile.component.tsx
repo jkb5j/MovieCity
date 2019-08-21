@@ -26,29 +26,29 @@ export class UserProfile extends Component<RouteComponentProps, IState> {
         //const user = this.state.users;
 
         return(
-                <div>
-                    <div >
-                        <div >
+                <div className="work">
+                    <div className="work">
+                        <div className="work">
                             <p>User</p>
                             <p>{localStorage.getItem('username')}</p>
                         </div>
-                        <div >
-                            <Button color="success"  id="logout Button" onClick={() => {this.logout()}}>Logout</Button>
+                        <div className="work">
+                            <Button color="secondary"  id="logout Button" onClick={() => {this.logout()}}>Logout</Button>
                         </div>
-                        <div >
-                            <div >
+                        <div className="work">
+                            <div className="work">
                                 <FavMovies/>
                             </div>
                         </div>
                         
                     </div>
-                    <div>
+                    <div className="work">
                         <p>Followers</p>
-                        <div>
+                        <div className="work">
                             <GetFollowers/>
                         </div>
                     </div>
-                    <div>
+                    <div className="work">
                         <p>Friends</p>
                         <MyFriends/>    
                     </div> 

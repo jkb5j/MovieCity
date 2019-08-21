@@ -55,37 +55,6 @@ nav {
 }
 
 
-/*******************************************************
-User Profile
-*******************************************************/
-.profile-container {
-  // margin-top: 5em;
-}
-// .user-container {
-//   margin: 0 auto;
-// }
-.follower-container {
-  margin-top: 3em;
-}
-.view-user-container {
-  border: 1px solid #000;
-  margin: 0 auto;
-  width: 30em;
-  height: 25em;
-}
-.view-followers-container {
-  border: 1px solid #000;
-  width: 30em;
-  height: 15em;
-}
-
-.view-movies-container {
-  border: 1px solid black;
-  width: 40em;
-  height: 25em;
-}
-
-
 /********************************************************
 Cards
 ********************************************************/
@@ -131,4 +100,41 @@ Sign In
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+div div div
+{
+  background-color: white;
+}
+div {
+  background-color: rgb(148, 148, 132);
+}
+html {
+  background-color: rgb(46, 46, 42);
+}
+.navbar {
+  background-color: white;
+}
+.navbar-header {
+  background-color: #ffffff;
+}
+.nav-item, .active, .dropdown {
+  background-color: white;
+}
+.dropdown-menu {
+  background-color: white;
+}
+.dropdown-item:hover {
+  background-color: rgb(20, 3, 95);
+}
+.dropdown-item:active {
+background-color: rgb(245, 167, 22);
+}
+.work {
+  background-color: #800303;
+  font-style: oblique;
+  font-weight: bold;
+  color: #f7f6f5;
+}
+.user-post-form {
+  background-color: rgb(224, 224, 16);
 }
