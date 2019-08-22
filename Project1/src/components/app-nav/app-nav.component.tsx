@@ -27,6 +27,7 @@ export class NavComponent extends React.Component {
               <div className="dropdown-menu" aria-labelledby="examples-dropdown">
                 <div className="dropdown-item"><Link to="/profile" className="unset-anchor nav-link active">User Profile</Link></div>
                 <div className="dropdown-item"><Link to="/find-users" className="unset-anchor nav-link active">Find Other User</Link></div>
+                <div className="dropdown-item"><Link to="/pending" className="unset-anchor nav-link active">Pending Friend Requests</Link></div>
                 <div className="dropdown-item"><Link to="/patch-user" className="unset-anchor nav-link active">Update My User</Link></div>
                 <div className="dropdown-item"><Link to="/post-user" className="unset-anchor nav-link active">Create A User</Link></div>
               </div>
