@@ -72,7 +72,7 @@ export default class GetUsers extends Component<{}, IState> {
     render() {
         const users = this.state.users;
         return(
-            <div id="reimb-table-container">
+            <div id="">
                   <label>Enter Friend UserName</label>
                   <input type="text" id="inputUserName" name="username" className="form-control" onChange={this.handleChange} value={this.state.username} />
                   <Button color="success"  id="inputUserName" onClick={() => {this.findAUsers(this.state.username)}}>Find User</Button>

@@ -112,7 +112,7 @@ INSERT INTO favorites(movie_id,user_id)
 /**
 recommendation
 **/
-INSERT INTO recommendation(sender,receiver,movie)
+INSERT INTO recommendations(sender,receiver,movie)
 	VALUES((SELECT user_id from users where user_id=1),(SELECT user_id from users where user_id=2),(SELECT movie_id from movies where movie_id=40)),
 		  	((SELECT user_id from users where user_id=3),(SELECT user_id from users where user_id=1),(SELECT movie_id from movies where movie_id=25)),
 		  ((SELECT user_id from users where user_id=2),(SELECT user_id from users where user_id=1),(SELECT movie_id from movies where movie_id=30))

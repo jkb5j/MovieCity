@@ -43,8 +43,8 @@ export default class GetFollowers extends Component<{}, IState> {
     render() {
         const followers = this.state.follower;
         return(
-            <div id="reimb-table-container">
-                <table className="table table-striped table-dark">
+            <div>
+                <table className="follower-table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Username</th>
@@ -61,7 +61,8 @@ export default class GetFollowers extends Component<{}, IState> {
                                     <td>{follower.firstName}</td>
                                     <td>{follower.lastName}</td>
                                     <td>{follower.email}</td>
-                                    <td><Button className="followerId, btn btn-primary" type="button" onClick={() => this.unfollow(follower.userId)}>
+                                    <td><Button className="btn btn-primary" type="button" 
+                                        onClick={() => this.unfollow(follower.userId)}>
                                         Unfollow
                                         </Button></td>
                                     

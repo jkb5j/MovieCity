@@ -1,5 +1,5 @@
-$appWhite: #ffffff;
-
+$tan: #949484;
+$burgundy: #800303;
 
 body {
   margin: 0;
@@ -18,7 +18,7 @@ code {
 /*****************************
   NAV
 *****************************/
-.rev-logo {
+.movie-logo {
   width: auto;
   height: 2em;
   margin-right: 2em;
@@ -27,7 +27,6 @@ code {
 .margin-nav {
   margin-right: 2em
 }
-
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
   color: rgba(0,0,0,.7);
@@ -39,11 +38,11 @@ code {
 }
 
 .bg-light {
-  background-color: $appWhite !important;
+  background-color: $tan !important;
 }
 
 nav {
-  border-bottom: 1px solid $appWhite !important;
+  border-bottom: 1px solid $tan !important;
   margin-bottom: 20px;
   -webkit-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
   -moz-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
@@ -54,19 +53,11 @@ nav {
   cursor: pointer;
 }
 
-
-/********************************************************
-Cards
-********************************************************/
-#card-table-container {
-  width: 100%;
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-}
-
-#card-game-dropdown {
-  align-self: flex-end;
+/*****************************
+  Followers
+*****************************/
+.follower-table {
+  margin: 0 auto;
 }
 
 /********************************************************
@@ -81,7 +72,7 @@ Sign In
 .form-signin .checkbox {
   font-weight: 400;
 }
-.form-signin .form-control {
+.form-signin {
   position: relative;
   box-sizing: border-box;
   height: auto;
@@ -101,40 +92,40 @@ Sign In
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-div div div
-{
-  background-color: white;
-}
-div {
-  background-color: rgb(148, 148, 132);
-}
-html {
-  background-color: rgb(46, 46, 42);
-}
-.navbar {
-  background-color: white;
-}
-.navbar-header {
-  background-color: #ffffff;
-}
-.nav-item, .active, .dropdown {
-  background-color: white;
-}
+
+// .navbar {
+//   background-color: $tan;
+// }
+// .navbar-header {
+//   background-color: $tan;
+// }
 .dropdown-menu {
-  background-color: white;
+  background-color: $tan;
+  color: #fff;
 }
 .dropdown-item:hover {
-  background-color: rgb(20, 3, 95);
+  background-color: $burgundy;
 }
 .dropdown-item:active {
 background-color: rgb(245, 167, 22);
 }
 .work {
-  background-color: #800303;
+  background-color: $burgundy;
   font-style: oblique;
   font-weight: bold;
   color: #f7f6f5;
 }
 .user-post-form {
-  background-color: rgb(224, 224, 16);
+  background-color:$tan;
+  margin: 3em;
+  margin-right: 15em;
+  margin-left: 15em;
+  // margin-bottom: 3em;
+  border-radius: .5em;
 }
+
+.form-control {
+  margin: 0 auto;
+  width: 25em;
+}
+
