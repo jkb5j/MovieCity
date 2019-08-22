@@ -128,4 +128,9 @@ background-color: rgb(245, 167, 22);
   margin: 0 auto;
   width: 25em;
 }
-
+.displaynull {
+  display: none;
+}
+.displayyes {
+  display: table-cell;
+}

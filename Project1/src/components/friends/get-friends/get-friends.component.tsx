@@ -4,14 +4,16 @@ import { User } from '../../../models/user';
 import { Button } from 'reactstrap';
 
 interface IState {
-    users: User[]
+    users: User[],
+    showRec: boolean
 }
 
 export default class MyFriends extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            users: []
+            users: [],
+            showRec: false
         };
     }
 
@@ -37,6 +39,18 @@ export default class MyFriends extends Component<{}, IState> {
         });
     }
 
+    recommendMovie = async (recId: Number) => {
+        const resp = await fetch(environment.context + '/recs/receiver/' + recId + '/sender/' + localStorage.getItem("userId") + '/movie/' + localStorage.getItem('movieId'), {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+        localStorage.removeItem("movieId");
+        localStorage.setItem("display", "null");
+    }
+
     render() {
         const users = this.state.users;
         return(
@@ -60,6 +74,9 @@ export default class MyFriends extends Component<{}, IState> {
                                     <td>{user.lastName}</td>
                                     <td><Button className="btn btn-primary" type="button" onClick={() => this.unfriend(user.userId)}>
                                         Unfriend
+                                        </Button></td>
+                                    <td className={"display"+localStorage.getItem("display")}><Button className="btn btn-primary" type="button" onClick={() => this.recommendMovie(user.userId)}>
+                                        Recommend Movie
                                         </Button></td>
                                 </tr>
                                 )

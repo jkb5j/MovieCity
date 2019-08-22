@@ -65,6 +65,11 @@ export default class FavMovies extends Component<{}, IState> {
         });
     }
 
+    saveMovie = (movieId: Number) => {
+        localStorage.setItem("movieId", ""+movieId);
+        localStorage.setItem("display", "yes");
+    }
+
     render() {
         const movies = this.state.movies;
         return(
@@ -96,6 +101,12 @@ export default class FavMovies extends Component<{}, IState> {
                                     <Button className="btn btn-primary" type="button" 
                                         onClick={() => this.unfavoriteMovie(movie.movieId)}>
                                             Unfavorite Movie
+                                            </Button>
+                                    </td>
+                                    <td>
+                                    <Button className="btn btn-primary" type="button" 
+                                        onClick={() => this.saveMovie(movie.movieId)}>
+                                            Recommend Movie
                                             </Button>
                                     </td>
                                 </tr>

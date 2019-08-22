@@ -2,13 +2,9 @@ import React, { Component, unstable_Profiler } from 'react';
 import {User} from '../../models/user';
 import { Input, Button } from 'reactstrap';
 import FavMovies from '../movies/favorite-movies/fav-movies.component';
-import GetFollowers from '../followers/get-followers/get-followers.component';
 import MyFriends from '../friends/get-friends/get-friends.component';
 import { RouteComponentProps } from 'react-router';
-// import {follower} from '../../models/followers';
-// import {friend} from '../../models/friends';
-// import {movie} from '../../models/movie';
-// import {environment} from '../../../environment';
+import GetFollowing from '../followers/get-following/get-following.component';
 
 
 interface IState{
@@ -23,7 +19,6 @@ export class UserProfile extends Component<RouteComponentProps, IState> {
     }
 
     render(){
-        //const user = this.state.users;
 
         return(
                 <div className="work">
@@ -45,7 +40,7 @@ export class UserProfile extends Component<RouteComponentProps, IState> {
                     <div className="work">
                         <p>Followers</p>
                         <div className="work">
-                            <GetFollowers/>
+                            <GetFollowing/>
                         </div>
                     </div>
                     <div className="work">
