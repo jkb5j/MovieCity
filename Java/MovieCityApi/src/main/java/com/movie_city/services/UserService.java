@@ -1,5 +1,6 @@
 package com.movie_city.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -121,4 +122,15 @@ public class UserService {
 		return userRepo.findAllBut(userId);
 	}
 	
+	public List<User> findFollowing(int userId) {
+		List<User> all = userRepo.findAll();
+		List<User> following = new ArrayList<User>();
+		User mainUser = userRepo.getOne(userId);
+		for(User u: all) {
+			if(u.getFollowers().contains(mainUser)) {
+				following.add(u);
+			}
+		}
+		return following;
+	}
 }

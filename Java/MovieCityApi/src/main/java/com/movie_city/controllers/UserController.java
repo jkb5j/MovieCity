@@ -83,4 +83,8 @@ public class UserController {
 	private List<User> follow(@PathVariable int userId, @PathVariable int followId) {
 		return userService.follow(userId, followId);
 	}
+	@GetMapping("/following/{userId}")
+	private List<User> findFollowing(@PathVariable int userId) {
+		return userService.findFollowing(userId);
+	}
 }
