@@ -62,6 +62,7 @@ export default class GetUsers extends Component<{}, IState> {
                 'content-type': 'application/json'
             }
         });
+        window.location.reload();
     }
     
     follow = async (recipientId: Number) => {
@@ -72,6 +73,7 @@ export default class GetUsers extends Component<{}, IState> {
                 'content-type': 'application/json'
             }
         });
+        window.location.reload();
     }
 
     render() {
