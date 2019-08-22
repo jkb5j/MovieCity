@@ -35,6 +35,7 @@ export class SignIn extends React.Component<RouteComponentProps, IState> {
     submit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
+            localStorage.clear();
             const resp = await fetch(environment.context + '/login', {
                 method: 'POST',
                 credentials: 'include',
