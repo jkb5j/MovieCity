@@ -12,7 +12,7 @@ interface IState {
     favMovie: Number
 }
 
-export default class FavMovies extends Component<{}, IState> {
+export default class OtherFavMovies extends Component<{}, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -28,7 +28,7 @@ export default class FavMovies extends Component<{}, IState> {
     };
 
     getFavMovies = async () => {
-        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId'), {
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('otherUserId'), {
             credentials: 'include'
         });
         const moviesFromServer = await resp.json();
@@ -56,7 +56,7 @@ export default class FavMovies extends Component<{}, IState> {
         this.setState({
             favMovie: favMovieId
         });
-        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') +'/movie/' + favMovieId,{
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('otherUserId') +'/movie/' + favMovieId,{
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {

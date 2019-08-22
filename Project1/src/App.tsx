@@ -14,6 +14,7 @@ import GetFollowers from './components/followers/get-followers/get-followers.com
 import GetPending from './components/pending/get-pending/get-pending.component';
 import MyFriends from './components/friends/get-friends/get-friends.component';
 import GetRecommendations from './components/recommendations/get-recommendations/get-recommendations.component';
+import { OtherUserProfile } from './components/profile/other-user-profile.component';
 
 const App: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/patch-user" component={UpdateUser} />
           <Route path="/profile" component={UserProfile}/>
           <Route path="/recommended-movie" component={GetRecommendations}/>
+          <Route path="/other-profile" component={OtherUserProfile}/>
         </Switch>
       </div>
     </BrowserRouter>
