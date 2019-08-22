@@ -145,6 +145,7 @@ export default class GetMovies extends Component<{}, IState> {
                             <th scope="col">Origin</th>
                             <th scope="col">Director</th>
                             <th scope="col">Veiw Plot</th>
+                            <th scope="col">Favorite</th>
                         </tr>
                     </thead>
                     <tbody>
