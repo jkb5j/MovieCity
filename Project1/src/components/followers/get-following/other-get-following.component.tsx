@@ -1,15 +1,14 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 
 interface IState {
     follower: User[]
 }
 
-export class GetFollowers extends Component<RouteComponentProps, IState> {
+export class GetFollowing extends Component<RouteComponentProps, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -20,9 +19,8 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
     async componentDidMount() {
         this.getFollowers();
     };
-    // /followers/{userId}
     getFollowers = async () => {
-        const resp = await fetch(environment.context + '/users/followers/' + localStorage.getItem('userId'), {
+        const resp = await fetch(environment.context + '/users/followers/' + localStorage.getItem('otherUserId'), {
             credentials: 'include'
         });
         const followersFromServer = await resp.json();
@@ -30,23 +28,14 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
             follower: followersFromServer
         });
     }
-    unfollow = async (followerId: Number) => {
-        const resp = await fetch(environment.context + '/users/followers/' + localStorage.getItem('userId')/*logged in user*/
-            + '/unfollow/' + followerId, {
-                method: 'DELETE',
-                credentials: 'include'
-        });
-        const followersFromServer = await resp.json();
-        this.setState({
-            follower: followersFromServer
-        });
-    }
+
     signIn(userId: any, username: any) {
         localStorage.setItem("otherUserId", userId)
         console.log(localStorage.getItem("otherUserId"))
         localStorage.setItem("otherUsername", username)
         console.log(localStorage.getItem("otherUsername"))
         this.props.history.push("/other-profile");
+        window.location.reload();
     }
 
     render() {
@@ -70,11 +59,6 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
                                     <td>{follower.firstName}</td>
                                     <td>{follower.lastName}</td>
                                     <td>{follower.email}</td>
-                                    <td><Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.unfollow(follower.userId)}>
-                                        Unfollow
-                                        </Button></td>
-                                    
                                 </tr>
                                 )
                         }
@@ -85,4 +69,4 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
     }
 }
 
-export default withRouter(GetFollowers);
+export default withRouter(GetFollowing);
