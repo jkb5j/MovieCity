@@ -28,6 +28,7 @@ export default class MyFriends extends Component<{}, IState> {
                 'content-type': 'application/json'
             }
         });
+        window.location.reload();
     }
     getFriends = async () => {
         const resp = await fetch(environment.context + '/users/friends/' + localStorage.getItem('userId'), {
@@ -49,6 +50,7 @@ export default class MyFriends extends Component<{}, IState> {
         });
         localStorage.removeItem("movieId");
         localStorage.setItem("display", "null");
+        window.location.reload();
     }
 
     render() {

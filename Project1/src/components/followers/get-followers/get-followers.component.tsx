@@ -40,6 +40,7 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
         this.setState({
             follower: followersFromServer
         });
+        window.location.reload();
     }
     signIn(userId: any, username: any) {
         localStorage.setItem("otherUserId", userId)

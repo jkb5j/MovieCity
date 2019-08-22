@@ -63,11 +63,13 @@ export default class FavMovies extends Component<{}, IState> {
                     'content-type': 'application/json'
                 }
         });
+        window.location.reload();
     }
 
     saveMovie = (movieId: Number) => {
         localStorage.setItem("movieId", ""+movieId);
         localStorage.setItem("display", "yes");
+        window.location.reload();
     }
 
     render() {
