@@ -1,6 +1,7 @@
 import React from 'react';
 import { environment } from '../../environment';
 import { RouteComponentProps } from 'react-router';
+import { Card } from 'reactstrap';
 
 interface IState {
     credentials: {
@@ -46,7 +47,7 @@ export class SignIn extends React.Component<RouteComponentProps, IState> {
             });
             const user = await resp.json();
             console.log(user);
-    
+
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('userId', user.userId);
             localStorage.setItem('username', user.username);
@@ -62,26 +63,28 @@ export class SignIn extends React.Component<RouteComponentProps, IState> {
 
     render() {
         return (
-            <form className="form-signin" onSubmit={this.submit}>
-                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <label htmlFor="inputUsername" className="sr-only">username</label>
-                <input type="text" id="inputUsername" 
-                    name="username"
-                    className="form-control"
-                    placeholder="username" 
-                    onChange={this.handleChange}
-                    value={this.state.credentials.username} required />
-                <label htmlFor="inputPassword" className="sr-only">Password</label>
-                <input type="password" id="inputPassword" 
-                    name="password"
-                    className="form-control" 
-                    placeholder="Password"
-                    onChange={this.handleChange}
-                    value={this.state.credentials.password} required />
-                {this.state.errorMessage && <p id="error-message">{this.state.errorMessage}</p>}
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-            </form>
+            <Card className="sign-in-card">
+                <form className="form-signin" onSubmit={this.submit}>
+                    <h1>Please Sign In</h1>
+                    <label htmlFor="inputUsername" className="sr-only">username</label>
+                    <input type="text" id="inputUsername"
+                        name="username"
+                        className="log-up"
+                        placeholder="username"
+                        onChange={this.handleChange}
+                        value={this.state.credentials.username} required />
+                    <label htmlFor="inputPassword" className="sr-only">Password</label>
+                    <input type="password" id="inputPassword"
+                        name="password"
+                        className="log-up"
+                        placeholder="Password"
+                        onChange={this.handleChange}
+                        value={this.state.credentials.password} required />
+                    {this.state.errorMessage && <p id="error-message">{this.state.errorMessage}</p>}
+                    <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+                </form>
+            </Card>
         );
     }
 }

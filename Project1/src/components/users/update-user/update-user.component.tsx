@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { environment } from '../../../environment';
+import { Button } from 'reactstrap';
 
 
 
@@ -62,43 +63,43 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
     render() {
         return (
             <form className="user-post-form" onSubmit={this.submit}>
-                <h1 className="posting title">Please Provide User Information</h1>
+                <h1>Update User Information</h1>
                 <label htmlFor="inputUsername" className="text-only">Input Username</label>
                 <input type="text" id="inputUsername"
                 name="username"
                 className="form-control"
-                placeholder="new Username"
+                // placeholder="new Username"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.username} required />
                 <label htmlFor="inputPassword" className="text-only">Input Password</label>
                 <input type="text" id="inputPassword"
                 name="password"
                 className="form-control"
-                placeholder="new password"
+                // placeholder="new password"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.password} required />
                 <label htmlFor="inputFirstName" className="text-only">Input First Name</label>
                 <input type="text" id="inputFirstName"
                 name="firstName"
                 className="form-control"
-                placeholder="first-name"
+                // placeholder="first-name"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.firstName} required />
                 <label htmlFor="inputLastName" className="text-only">Input Last Name</label>
                 <input type="text" id="inputLastName"
                 name="lastName"
                 className="form-control"
-                placeholder="last-name"
+                // placeholder="last-name"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.lastName} required />
                 <label htmlFor="inputEmail" className="text-only">Input Email</label>
                 <input type="text" id="inputEmail"
                 name="email"
                 className="form-control"
-                placeholder="email"
+                // placeholder="email"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.email} required />
-                <button color="success" type="submit">Post User</button>
+                <Button className="post-btn btn-info" type="submit">Post User</Button>
             </form>
         );
     }
