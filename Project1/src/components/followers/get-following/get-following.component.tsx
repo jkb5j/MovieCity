@@ -41,8 +41,8 @@ export class GetFollowing extends Component<RouteComponentProps, IState> {
         const followers = this.state.follower;
         return(
             <div>
-                <table className="follower-table table-striped">
-                    <thead>
+                <table className="table table-striped table-light">
+                    <thead className="fol-thead">
                         <tr>
                             <th scope="col">Username</th>
                             <th scope="col">First Name</th>

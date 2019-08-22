@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 interface IState {
     users: User[],
     username: string,
-    slection:string,
+    slection: string,
     errorMessage?: string
 }
 
@@ -51,15 +51,15 @@ export default class GetUsers extends Component<{}, IState> {
     //     } catch (err) {
     //         console.error(err);
     //         this.setState({
-                
+
     //             errorMessage: 'Wrong User Name'
     //         });
     //     }
     // }
 
-    findAUsers= async (username:String) => {
+    findAUsers = async (username: String) => {
         //change the 1 to the session user
-        const resp = await fetch(environment.context + '/users/username/'+username, {
+        const resp = await fetch(environment.context + '/users/username/' + username, {
             credentials: 'include'
         });
         const usersFromServer = await resp.json();
@@ -71,14 +71,19 @@ export default class GetUsers extends Component<{}, IState> {
 
     render() {
         const users = this.state.users;
-        return(
-            <div id="">
-                  <label>Enter Friend UserName</label>
-                  <input type="text" id="inputUserName" name="username" className="form-control" onChange={this.handleChange} value={this.state.username} />
-                  <Button color="success"  id="inputUserName" onClick={() => {this.findAUsers(this.state.username)}}>Find User</Button>
-                  <Button color="success"  id="inputUserName" onClick={() => {this.getAllUsers()}}>All Users</Button>
-                <table className="table table-striped table-dark">
-                    <thead>
+        return (
+            <div className="find-users">
+                <h3>Find Users</h3>
+                <div className="find-input">
+                    <input type="text" id="inputUserName" name="username" placeholder="Enter Friend Username"
+                        className="form-control" onChange={this.handleChange} value={this.state.username} />
+                    <Button color="success" id="inputUserName"
+                        onClick={() => { this.findAUsers(this.state.username) }}>Find User</Button>
+                    <Button color="success" id="inputUserName"
+                        onClick={() => { this.getAllUsers() }}>All Users</Button>
+                </div>
+                <table className="table table-striped table-light">
+                    <thead className="fr-thead">
                         <tr>
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
@@ -86,16 +91,16 @@ export default class GetUsers extends Component<{}, IState> {
                             <th scope="col">Last Name</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="fr-body">
                         {
                             users.map(user =>
-                                <tr key={'userId-'+user.userId}>
+                                <tr key={'userId-' + user.userId}>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
                                 </tr>
-                                )
+                            )
                         }
                     </tbody>
                 </table>

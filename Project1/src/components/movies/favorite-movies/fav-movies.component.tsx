@@ -8,7 +8,7 @@ interface IState {
     plotModalShow: boolean,
     titleModalShow: boolean,
     currentSelectedPlot?: string,
-    currentSelectedTitle?:string,
+    currentSelectedTitle?: string,
     favMovie: Number
 }
 
@@ -48,7 +48,7 @@ export default class FavMovies extends Component<{}, IState> {
         this.setState({
             plotModalShow: true,
             currentSelectedPlot: plot,
-            currentSelectedTitle:title
+            currentSelectedTitle: title
         })
     }
 
@@ -56,28 +56,28 @@ export default class FavMovies extends Component<{}, IState> {
         this.setState({
             favMovie: favMovieId
         });
-        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') +'/movie/' + favMovieId,{
-                method: 'DELETE',
-                credentials: 'include',
-                headers: {
-                    'content-type': 'application/json'
-                }
+        const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') + '/movie/' + favMovieId, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
         });
         window.location.reload();
     }
 
     saveMovie = (movieId: Number) => {
-        localStorage.setItem("movieId", ""+movieId);
+        localStorage.setItem("movieId", "" + movieId);
         localStorage.setItem("display", "yes");
         window.location.reload();
     }
 
     render() {
         const movies = this.state.movies;
-        return(
-            <div id="reimb-table-container">
-                <table className="table table-striped table-dark">
-                    <thead>
+        return (
+            <div>
+                <table className="table table-striped table-light">
+                    <thead className="fm-thead">
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Genre</th>
@@ -85,34 +85,39 @@ export default class FavMovies extends Component<{}, IState> {
                             <th scope="col">Origin</th>
                             <th scope="col">Director</th>
                             <th scope="col">Veiw Plot</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="fm-tbody">
                         {
                             movies.map(movie =>
-                                <tr key={'movieId-'+movie.movieId}>
+                                <tr key={'movieId-' + movie.movieId}>
                                     <td>{movie.title}</td>
                                     <td>{movie.genre.genre}</td>
                                     <td>{movie.releaseYear}</td>
                                     <td>{movie.origin}</td>
                                     <td>{movie.director}</td>
-                                    <td><Button className="plot" type="button" onClick={() => this.selectPlot(movie.plot, movie.title)}>
-                                        Plot
-                                                </Button></td>
                                     <td>
-                                    <Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.unfavoriteMovie(movie.movieId)}>
-                                            Unfavorite Movie
-                                            </Button>
+                                        <Button className="btn btn-light" type="button" 
+                                            onClick={() => this.selectPlot(movie.plot, movie.title)}>
+                                            Plot
+                                        </Button>
                                     </td>
                                     <td>
-                                    <Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.saveMovie(movie.movieId)}>
+                                        <Button className="btn btn-warning" type="button"
+                                            onClick={() => this.unfavoriteMovie(movie.movieId)}>
+                                            Unfavorite Movie
+                                        </Button>
+                                    </td>
+                                    <td>
+                                        <Button className="btn btn-success" type="button"
+                                            onClick={() => this.saveMovie(movie.movieId)}>
                                             Recommend Movie
-                                            </Button>
+                                    </Button>
                                     </td>
                                 </tr>
-                                )
+                            )
                         }
                     </tbody>
                 </table>
@@ -120,9 +125,9 @@ export default class FavMovies extends Component<{}, IState> {
                     <ModalHeader isOpen={this.state.plotModalShow} toggle={this.togglePlotModalShow}>{this.state.currentSelectedTitle}</ModalHeader>
                     <ModalBody>
                         {this.state.currentSelectedPlot}
-          </ModalBody>
+                    </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.togglePlotModalShow}>Do Something</Button>{' '}
+                        {/* <Button color="primary" onClick={this.togglePlotModalShow}>Do Something</Button>{' '} */}
                         <Button color="secondary" onClick={this.togglePlotModalShow}>Cancel</Button>
                     </ModalFooter>
                 </Modal>

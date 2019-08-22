@@ -1,7 +1,7 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
-import { Button } from 'reactstrap';
+import { Button, Card, CardHeader } from 'reactstrap';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
             + '/unfollow/' + followerId, {
                 method: 'DELETE',
                 credentials: 'include'
-        });
+            });
         const followersFromServer = await resp.json();
         this.setState({
             follower: followersFromServer
@@ -52,35 +52,40 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
 
     render() {
         const followers = this.state.follower;
-        return(
-            <div>
-                <table className="follower-table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Username</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            followers.map(follower =>
-                                <tr key={'followerId-'+follower.userId} onClick={() => {this.signIn(follower.userId, follower.username)}}>
-                                    <td>{follower.username}</td>
-                                    <td>{follower.firstName}</td>
-                                    <td>{follower.lastName}</td>
-                                    <td>{follower.email}</td>
-                                    <td><Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.unfollow(follower.userId)}>
-                                        Unfollow
-                                        </Button></td>
-                                    
-                                </tr>
+        return (
+            <div className="following-card">
+                <h3>Following</h3>
+                <Card>
+                    <table className="table table-striped table-light">
+                        <thead className="fol-thead">
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody className="fol-tbody">
+                            {
+                                followers.map(follower =>
+                                    <tr key={'followerId-' + follower.userId} onClick={() => { this.signIn(follower.userId, follower.username) }}>
+                                        <td>{follower.username}</td>
+                                        <td>{follower.firstName}</td>
+                                        <td>{follower.lastName}</td>
+                                        <td>{follower.email}</td>
+                                        <td>
+                                            <Button className="btn btn-warning" type="button"
+                                                onClick={() => this.unfollow(follower.userId)}>
+                                                Unfollow
+                                        </Button>
+                                        </td>
+                                    </tr>
                                 )
-                        }
-                    </tbody>
-                </table>
+                            }
+                        </tbody>
+                    </table>
+                </Card>
             </div>
         )
     }

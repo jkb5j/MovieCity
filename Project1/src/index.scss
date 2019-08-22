@@ -1,5 +1,8 @@
 $tan: #949484;
 $burgundy: #800303;
+$white: #fff;
+$black: #000;
+$navy: #1d2c59;
 
 body {
   margin: 0;
@@ -53,13 +56,6 @@ nav {
   cursor: pointer;
 }
 
-/*****************************
-  Followers
-*****************************/
-.follower-table {
-  margin: 0 auto;
-}
-
 /********************************************************
 Sign In
 *******************************************************/
@@ -109,12 +105,100 @@ Sign In
 .dropdown-item:active {
 background-color: rgb(245, 167, 22);
 }
-.work {
-  background-color: $burgundy;
+
+/*****************************
+  Usser Profile
+*****************************/
+.user-profile {
   font-style: oblique;
   font-weight: bold;
   color: #f7f6f5;
 }
+
+.user-profile p { 
+  color: #000;
+  margin-right: 2em;
+  text-align: center;
+} 
+
+.user-box {
+  margin: 0 auto;
+  margin-right: 3em;
+  margin-left: 3em;
+}
+
+.user-box h3 {
+  color: $black;
+}
+
+.user-credentials {
+  margin-left: 2.5em;
+}
+
+/*****************************
+  Favorite Movies
+*****************************/
+.fav-movies-table {
+  margin: 2em;
+  // border: .3em;
+}
+
+.fm-thead {
+  font-size: 14px;
+  background-color: $navy;
+  color: $white;
+}
+
+.fm-tbody,
+.fol-tbody {
+  font-size: 16px;
+}
+
+/*****************************
+  Following
+*****************************/
+.following-card {
+  margin: 4em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  background-color: $tan;
+}
+
+.user-followers {
+  margin: 2em;
+  padding-top: 1em;
+  background-color: $tan;
+  border: 1px solid $black;
+}
+
+.user-followers h3,
+.fav-movies-table h3 {
+  color: #000;
+}
+
+.following-table {
+  margin: 0 auto;
+}
+
+.fol-thead,
+.fr-thead {
+  font-size: 14px;
+  background-color: $burgundy;
+  color: $white;
+}
+
+/*****************************
+  Get Users
+*****************************/
+.find-users {
+  margin: 3em;
+}
+
+.find-input {
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
 .user-post-form {
   background-color:$tan;
   margin: 3em;
@@ -122,6 +206,11 @@ background-color: rgb(245, 167, 22);
   margin-left: 15em;
   // margin-bottom: 3em;
   border-radius: .5em;
+}
+
+.user-post-form input {
+  margin: 0 auto;
+  width: 25em;
 }
 
 .form-control {

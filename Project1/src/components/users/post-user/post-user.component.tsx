@@ -63,39 +63,39 @@ export class PostUser extends React.Component<RouteComponentProps, IState> {
     render() {
         return (
             <form className="user-post-form" onSubmit={this.submit}>
-                <h1 className="posting title">Please Provide User Information</h1>
+                <h1>Please Provide User Information</h1>
                 <label htmlFor="inputUsername" className="text-only">Username</label>
                 <input type="text" id="inputUsername"
                     name="username"
-                    className="form-control"
+                    // className="form-control"
                     placeholder="username"
                     onChange={this.handleChange}
                     value={this.state.postinginfo.username} required />
                 <label htmlFor="inputPassword" className="text-only">Password</label>
                 <input type="text" id="inputPassword"
                     name="password"
-                    className="form-control"
+                    // className="form-control"
                     placeholder="password"
                     onChange={this.handleChange}
                     value={this.state.postinginfo.password} required />
                 <label htmlFor="inputFirstName" className="text-only">First Name</label>
                 <input type="text" id="inputFirstName"
                     name="firstName"
-                    className="form-control"
+                    // className="form-control"
                     placeholder="first-name"
                     onChange={this.handleChange}
                     value={this.state.postinginfo.firstName} required />
                 <label htmlFor="inputLastName" className="text-only">Last Name</label>
                 <input type="text" id="inputLastName"
                     name="lastName"
-                    className="form-control"
+                    // className="form-control"
                     placeholder="last-name"
                     onChange={this.handleChange}
                     value={this.state.postinginfo.lastName} required />
                 <label htmlFor="inputEmail" className="text-only">Email</label>
                 <input type="text" id="inputEmail"
                     name="email"
-                    className="form-control"
+                    // className="form-control"
                     placeholder="email"
                     onChange={this.handleChange}
                     value={this.state.postinginfo.email} required />
