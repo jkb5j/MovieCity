@@ -101,10 +101,10 @@ public class UserService {
 	}
 	@Transactional
 	public List<User> follow(int userId, int followId) {
-		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(followId);
-		mainUser.getFollowers().add(oldUser);
-		return mainUser.getFollowers();
+		User follower = userRepo.getOne(userId);
+		User beingFollowed = userRepo.getOne(followId);
+		beingFollowed.getFollowers().add(follower);
+		return beingFollowed.getFollowers();
 	}
 	
 	public User login(Credential cred) {
