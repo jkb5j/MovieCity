@@ -45,6 +45,8 @@ public class UserService {
 
 	public User update(int id, User user) {
 		if(id == user.getUserId()) { // add test for authentication
+			user.setRole(new Role(2, "user"));
+			System.out.println("user is" + user);
 			return userRepo.saveAndFlush(user);
 		} else {
 			return null;

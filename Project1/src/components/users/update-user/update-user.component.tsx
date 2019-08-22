@@ -7,6 +7,7 @@ import { Button } from 'reactstrap';
 
 interface IState {
     postinginfo: {
+        userId: any,
         username: string,
         password: string,
         email: string,
@@ -21,6 +22,7 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
         super(props);
         this.state = {
             postinginfo: {
+                userId: localStorage.getItem("userId"),
                 username: '',
                 password: '',
                 email: '',
@@ -43,7 +45,8 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
     submit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-            const resp = await fetch(environment.context + '/users/' + localStorage.getItem('userId'), {
+            // console.log(localStorage.getItem("userId"))
+            const resp = await fetch(environment.context + '/users/' + localStorage.getItem("userId"), {
                 method: 'PUT',
                 credentials: 'include',
                 body: JSON.stringify(this.state.postinginfo),
@@ -51,7 +54,10 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
                     'content-type': 'application/json'
                 }
             });
-            this.props.history.push('/find-users');
+            localStorage.setItem('username', this.state.postinginfo.username);
+            console.log(this.state.postinginfo);
+            console.log(localStorage.getItem("user"));
+            // this.props.history.push('/find-users');
         } catch (err) {
             console.error(err);
             this.setState({
