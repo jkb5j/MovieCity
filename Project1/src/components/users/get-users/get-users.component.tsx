@@ -42,21 +42,6 @@ export default class GetUsers extends Component<{}, IState> {
         });
     }
 
-    // submit = async (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //     try{
-    //         console.log("usename stuff before");
-    //        this.findAUsers(this.state.username);
-    //        console.log("usename stuff After");
-    //     } catch (err) {
-    //         console.error(err);
-    //         this.setState({
-
-    //             errorMessage: 'Wrong User Name'
-    //         });
-    //     }
-    // }
-
     findAUsers = async (username: String) => {
         //change the 1 to the session user
         const resp = await fetch(environment.context + '/users/username/' + username, {
@@ -66,6 +51,26 @@ export default class GetUsers extends Component<{}, IState> {
         console.log(usersFromServer);
         this.setState({
             users: usersFromServer
+        });
+    }
+
+    addFriend = async (recipientId: Number) => {
+        const resp = await fetch(environment.context + '/pending/request/' + localStorage.getItem('userId') +'/' + recipientId, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+    }
+    
+    follow = async (recipientId: Number) => {
+        const resp = await fetch(environment.context + '/users/followers/' +localStorage.getItem('userId') + '/follow/' + recipientId, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
         });
     }
 
@@ -99,6 +104,12 @@ export default class GetUsers extends Component<{}, IState> {
                                     <td>{user.email}</td>
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
+                                    <td><Button className="btn btn-primary" type="button" onClick={() => this.follow(user.userId)}>
+                                            Follow
+                                        </Button></td>
+                                    <td><Button className="btn btn-primary" type="button" onClick={() => this.addFriend(user.userId)}>
+                                            Send Friend Request
+                                        </Button></td>
                                 </tr>
                             )
                         }
