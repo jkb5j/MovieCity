@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { environment } from '../../../environment';
 import { User } from '../../../models/user';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 interface IState {
     follower: User[]
 }
 
-export default class OtherGetFollowing extends Component<{}, IState> {
+export class GetFollowing extends Component<RouteComponentProps, IState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -28,6 +29,15 @@ export default class OtherGetFollowing extends Component<{}, IState> {
         });
     }
 
+    signIn(userId: any, username: any) {
+        localStorage.setItem("otherUserId", userId)
+        console.log(localStorage.getItem("otherUserId"))
+        localStorage.setItem("otherUsername", username)
+        console.log(localStorage.getItem("otherUsername"))
+        this.props.history.push("/other-profile");
+        window.location.reload();
+    }
+
     render() {
         const followers = this.state.follower;
         return(
@@ -44,7 +54,7 @@ export default class OtherGetFollowing extends Component<{}, IState> {
                     <tbody>
                         {
                             followers.map(follower =>
-                                <tr key={'followerId-'+follower.userId}>
+                                <tr key={'followerId-'+follower.userId} onClick={() => {this.signIn(follower.userId, follower.username)}}>
                                     <td>{follower.username}</td>
                                     <td>{follower.firstName}</td>
                                     <td>{follower.lastName}</td>
@@ -58,3 +68,5 @@ export default class OtherGetFollowing extends Component<{}, IState> {
         )
     }
 }
+
+export default withRouter(GetFollowing);
