@@ -72,12 +72,6 @@ export default class OtherFriends extends Component<{}, IState> {
                                     <td>{user.email}</td>
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
-                                    <td><Button className="btn btn-primary" type="button" onClick={() => this.unfriend(user.userId)}>
-                                        Unfriend
-                                        </Button></td>
-                                    <td className={"display"+localStorage.getItem("display")}><Button className="btn btn-primary" type="button" onClick={() => this.recommendMovie(user.userId)}>
-                                        Recommend Movie
-                                        </Button></td>
                                 </tr>
                                 )
                         }

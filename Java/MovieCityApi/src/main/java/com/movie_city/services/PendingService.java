@@ -23,20 +23,19 @@ public class PendingService {
 		return pr.findAll();
 	}
 	@Transactional
-	public Pending update(int pendingId, Pending p) {
-		if(pendingId == p.getPendingId()) {
+	public Pending update(int pendingId, int pstatus) {
 			Pending pend = pr.getOne(pendingId);
-			if(1 == p.getStatus()) {
-				
+			if(1 == pstatus) {
 				User beingAsked = pend.getBeingAsked();
 				User asking = pend.getAsking();
 				beingAsked.getFriends().add(asking);
 				asking.getFriends().add(beingAsked);
-			}
+				pend.setStatus(pstatus);
 			return pr.saveAndFlush(pend);
-		} else {
+			} else {
+				pend.setStatus(pstatus);
+			}
 			return null;
-		}
 	}
 
 	public List<Pending> findByBeingAsked(int beingAskedId) {

@@ -33,7 +33,7 @@ export class OtherUserProfile extends Component<{}, IState> {
                         
                     </div>
                     <div className="work">
-                        <p>Following</p>
+                        <p>Following Me</p>
                         <div className="work">
                             <OtherGetFollowing/>
                         </div>

@@ -12,7 +12,7 @@ public interface PendingRepo extends JpaRepository<Pending, Integer>{
 	List<Pending> findByBeingAskedUserId(int beingAskedId);
 
 	List<Pending> findByAskingUserId(int askingId);
-
+	
 	List<Pending> findByBeingAskedUserIdAndStatus(int beingAskedId, int status);
 
 }

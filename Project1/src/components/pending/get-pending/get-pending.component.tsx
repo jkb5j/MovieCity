@@ -53,7 +53,7 @@ export default class GetPending extends Component<{}, IState> {
                 status: updateStatus
             }
         });
-        const resp = await fetch(environment.context + '/pending/' + updatePendingId,{
+        const resp = await fetch(environment.context + '/pending/' + updatePendingId + "/" + updateStatus,{
                 method: 'PUT',
                 credentials: 'include',
                 body: JSON.stringify(this.state.updatePending),
@@ -61,6 +61,7 @@ export default class GetPending extends Component<{}, IState> {
                     'content-type': 'application/json'
                 }
         });
+        window.location.reload();
     }
     render() {
         const pendings = this.state.pending;

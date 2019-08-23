@@ -96,6 +96,8 @@ export default class GetUsers extends Component<{}, IState> {
                             <th scope="col">Email</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
+                            <th scope="col">Follow User</th>
+                            <th scope="col">Become Friends</th>
                         </tr>
                     </thead>
                     <tbody className="fr-body">

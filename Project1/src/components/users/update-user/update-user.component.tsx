@@ -45,7 +45,6 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
     submit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-            // console.log(localStorage.getItem("userId"))
             const resp = await fetch(environment.context + '/users/' + localStorage.getItem("userId"), {
                 method: 'PUT',
                 credentials: 'include',
@@ -57,7 +56,7 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
             localStorage.setItem('username', this.state.postinginfo.username);
             console.log(this.state.postinginfo);
             console.log(localStorage.getItem("user"));
-            // this.props.history.push('/find-users');
+            this.props.history.push('/profile');
         } catch (err) {
             console.error(err);
             this.setState({
@@ -105,7 +104,7 @@ export class UpdateUser extends React.Component<RouteComponentProps, IState> {
                 // placeholder="email"
                 onChange={this.handleChange}
                 value={this.state.postinginfo.email} required />
-                <Button className="post-btn btn-info" type="submit">Post User</Button>
+                <Button className="post-btn btn-info" type="submit">Update User</Button>
             </form>
         );
     }

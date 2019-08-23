@@ -44,9 +44,7 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
     }
     signIn(userId: any, username: any) {
         localStorage.setItem("otherUserId", userId)
-        console.log(localStorage.getItem("otherUserId"))
         localStorage.setItem("otherUsername", username)
-        console.log(localStorage.getItem("otherUsername"))
         this.props.history.push("/other-profile");
     }
 
@@ -69,11 +67,11 @@ export class GetFollowers extends Component<RouteComponentProps, IState> {
                         <tbody className="fol-tbody">
                             {
                                 followers.map(follower =>
-                                    <tr key={'followerId-' + follower.userId} onClick={() => { this.signIn(follower.userId, follower.username) }}>
-                                        <td>{follower.username}</td>
-                                        <td>{follower.firstName}</td>
-                                        <td>{follower.lastName}</td>
-                                        <td>{follower.email}</td>
+                                    <tr key={'followerId-' + follower.userId}>
+                                        <td onClick={() => {this.signIn(follower.userId, follower.username)}}>{follower.username}</td>
+                                        <td onClick={() => {this.signIn(follower.userId, follower.username)}}>{follower.firstName}</td>
+                                        <td onClick={() => {this.signIn(follower.userId, follower.username)}}>{follower.lastName}</td>
+                                        <td onClick={() => {this.signIn(follower.userId, follower.username)}}>{follower.email}</td>
                                         <td>
                                             <Button className="btn btn-warning" type="button"
                                                 onClick={() => this.unfollow(follower.userId)}>

@@ -78,9 +78,10 @@ public class UserService {
 	@Transactional
 	public List<User> unfriend(int userId, int friendId) {
 		User mainUser = userRepo.getOne(userId);
-		User oldUser = userRepo.getOne(userId);
+		User oldUser = userRepo.getOne(friendId);
 		mainUser.getFriends().removeIf(User -> User.getUserId() == friendId);
-		mainUser.getFollowers().add(oldUser);
+		oldUser.getFriends().removeIf(User -> User.getUserId() == userId);
+		oldUser.getFollowers().add(mainUser);
 		return mainUser.getFriends();
 	}
 	@Transactional

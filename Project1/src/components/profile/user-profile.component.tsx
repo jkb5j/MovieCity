@@ -39,7 +39,7 @@ export class UserProfile extends Component<RouteComponentProps, IState> {
                 </div>
                 <div className="user-followers row">
                     <div className="following-table col-md-6">
-                        <h3>Following</h3>
+                        <h3>Following Me</h3>
                         <GetFollowing />
                     </div>
                     <div className="col-md-6">

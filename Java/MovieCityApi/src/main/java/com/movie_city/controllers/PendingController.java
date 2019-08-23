@@ -39,8 +39,8 @@ public class PendingController {
 		return pendingService.findByAsking(askingId);
 	}
 	
-	@PutMapping("/{pendingId}")
-	private Pending update(@PathVariable int pendingId, @RequestBody Pending p) {
+	@PutMapping("/{pendingId}/{p}")
+	private Pending update(@PathVariable int pendingId, @PathVariable int p) {
 		return pendingService.update(pendingId, p);
 	}
 	

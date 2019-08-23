@@ -97,18 +97,6 @@ export default class OtherFavMovies extends Component<{}, IState> {
                                     <td><Button className="plot" type="button" onClick={() => this.selectPlot(movie.plot, movie.title)}>
                                         Plot
                                                 </Button></td>
-                                    <td>
-                                    <Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.unfavoriteMovie(movie.movieId)}>
-                                            Unfavorite Movie
-                                            </Button>
-                                    </td>
-                                    <td>
-                                    <Button className="btn btn-primary" type="button" 
-                                        onClick={() => this.saveMovie(movie.movieId)}>
-                                            Recommend Movie
-                                            </Button>
-                                    </td>
                                 </tr>
                                 )
                         }
