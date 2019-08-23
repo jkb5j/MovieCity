@@ -32,6 +32,8 @@ export default class GetRecommendations extends Component<{}, IState> {
         console.log(recomFromServer)
     }
     noThanks = async (movieId: Number) => {
+        console.log(localStorage.getItem('userId'))
+        console.log(movieId)
         const resp = await fetch(environment.context + '/recs/receiver/' + localStorage.getItem('userId')
             + '/movie/' + movieId, {
                 method: 'DELETE',
@@ -41,6 +43,7 @@ export default class GetRecommendations extends Component<{}, IState> {
         this.setState({
             recomendations: recomFromServer
         });
+        window.location.reload();
     }
     favorite = async (movieId: Number) => {
         const resp = await fetch(environment.context + '/users/favorites/' + localStorage.getItem('userId') +

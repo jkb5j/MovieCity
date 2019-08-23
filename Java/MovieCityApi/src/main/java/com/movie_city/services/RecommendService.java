@@ -44,9 +44,10 @@ public class RecommendService {
 		int size = recom.size();
 		for(int i = 0; i < size; i++) {
 			recommendRepo.delete(recom.get(i));
+			recom.removeIf(Recommendations -> Recommendations.getRecommendationId() == recId);
 		}
 		System.out.println("not null recom");
 		System.out.println("recom" + recom);
-		return recom;
+		return recommendRepo.findByReceiverAndMovie(ur.getOne(recId), mr.getOne(movieId));
 	}
 }

@@ -64,7 +64,8 @@ export default class MyFriends extends Component<{}, IState> {
                             <th scope="col">Email</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
-                            <th scope="col"></th>
+                            <th scope="col">Unfriend</th>
+                            <th scope="col" className={"display" + localStorage.getItem("display")}>Send To?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,12 +82,12 @@ export default class MyFriends extends Component<{}, IState> {
                                             Unfriend
                                         </Button>
                                     </td>
-                                    {/* <td className={"display" + localStorage.getItem("display")}>
+                                    <td className={"display" + localStorage.getItem("display")}>
                                         <Button className="btn btn-success" type="button"
                                             onClick={() => this.recommendMovie(user.userId)}>
                                             Recommend Movie
                                         </Button>
-                                    </td> */}
+                                    </td>
                                 </tr>
                             )
                         }
